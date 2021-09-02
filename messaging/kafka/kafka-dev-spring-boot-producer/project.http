@@ -1,0 +1,20 @@
+###
+
+# curl -i
+#-d '{"libraryEventId":null,"book":{"bookId":456,"bookName":"Kafka Using Spring Boot","bookAuthor":"Dilip"}}'
+#-H "Content-Type: application/json"
+#-X POST http://localhost:8080/v1/libraryevent
+POST http://localhost:8080/api/v1/libraryevent
+Content-Type: application/json
+
+{
+  "libraryEventId": null,
+  "book": {
+    "bookId": 456,
+    "bookName": "Kafka Using Spring Boot",
+    "bookAuthor": "Dilip"
+  }
+}
+
+###
+
