@@ -1,0 +1,6 @@
+docker run --name redis-local -d redis
+
+docker run -it --network redis-local-network --rm redis redis-cli -h redis-local
+
+docker run -it --rm redis redis-cli -h redis-local
+
