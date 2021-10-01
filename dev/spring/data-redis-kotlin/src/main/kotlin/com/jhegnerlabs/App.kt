@@ -14,9 +14,11 @@ fun main() {
 //    val c2 = Consulta2().consulta2()
 //    println(c2)
 
-    val c3 = ctx.getBean(Consulta3::class.java)
-    c3.consulta3()
+//    val c3 = ctx.getBean(Consulta3::class.java)
+//    c3.consulta3()
+//    println(c3)
 
-    println(c3)
+    val c4 = ctx.getBean(ConsultaContrato::class.java)
+    c4.consulta()
 
 }

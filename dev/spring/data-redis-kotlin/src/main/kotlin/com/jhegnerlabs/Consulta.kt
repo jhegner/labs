@@ -12,36 +12,30 @@ import org.springframework.stereotype.Component
 class Consulta {
 
     @Autowired
-    lateinit var template: RedisTemplate<String, String>
-
-//    @Autowired
-//    var hashOperations: HashOperations<String, ByteArray, ByteArray>? = null
-//
-//    var mapper: HashMapper<Any, ByteArray, ByteArray> = ObjectHashMapper()
+    lateinit var template: RedisTemplate<String, Any>
 
     fun consulta(key: String): String? {
-//        return template.opsForValue().get(key)
-//        template.opsForHash<String, String>().putAll(
-//            "cliente:0002",
-//            mapOf(
-//                "nome" to "cardoso",
-//                "idade" to "73",
-//                "telefone" to "98765345",
-//                "profissao" to "professor",
-//            )
-//        )
 
-//        var tmp = template.opsForHash<String, Any>().entries("cliente:0001")
-//
-//
-//        tmp.mapKeys {
-//            println("Chave: ${it.key}")
-//            println("Valor: ${it.value}")
-//        }
+        template.opsForValue().get(key)
 
-        var tmp = template.opsForHash<String, String>().multiGet("cliente:0001", listOf("nome", "idade"))
+        template.opsForHash<String, Any>().putAll(
+            "cliente:0050",
+            mapOf(
+                "nome" to "sdfaasdfadsf asdfas ",
+                "idade" to "73",
+                "telefone" to "5345 435435",
+                "profissao" to "professor",
+            )
+        )
 
-        tmp.forEach{
+        var tmp = template.opsForHash<String, Any>().entries("cliente:0001")
+        tmp.mapKeys {
+            println("Chave: ${it.key}")
+            println("Valor: ${it.value}")
+        }
+
+        var tmp2 = template.opsForHash<String, Any>().multiGet("cliente:0001", listOf("nome", "idade"))
+        tmp2.forEach{
             println(it)
         }
 
