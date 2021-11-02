@@ -37,6 +37,12 @@ https://docs.splunk.com/Documentation/SCS/current/SearchReference/SearchCommandE
 
 https://docs.splunk.com/Documentation/SplunkLight/7.3.6/References/Listofsearchcommands
 
+https://docs.splunk.com/Documentation/Splunk/8.2.2/SearchReference/Top?ref=hk
+
+https://dev.splunk.com/enterprise/docs/developapps/addsupport/logging/loggingbestpractices/
+https://community.splunk.com/t5/Getting-Data-In/How-to-log-JSON-to-Splunk-and-optimize-for-spath/m-p/328158
+https://community.splunk.com/t5/Splunk-Search/How-to-filter-a-JSON-data-log-when-one-of-the-fields-in-that/m-p/432192
+
 # Learn
 
 https://www.youtube.com/watch?v=tZQLgU5Wxhs
@@ -46,9 +52,20 @@ https://www.youtube.com/watch?v=xtyH_6iMxwA
 
 https://www.youtube.com/watch?v=Y-TT6unOiPQ
 
+# Docker
+
+https://www.youtube.com/watch?v=WFovg0NEWHg
+
 # Java To Splunk
 
 https://www.youtube.com/watch?v=v0lHZDMfBOE
 https://www.youtube.com/watch?v=oLoPpKq3JgU
 https://community.splunk.com/t5/Getting-Data-In/Example-for-Splunk-HEC-using-Java-Spring-Boot/m-p/398269
 https://dzone.com/articles/java-applications-log-message-analytics-using-splu
+
+
+# Linux 
+
+https://docs.rackspace.com/support/how-to/create-sudo-user-in-centos/
+https://devconnected.com/how-to-change-user-on-linux/
+https://devconnected.com/how-to-list-users-and-groups-on-linux/

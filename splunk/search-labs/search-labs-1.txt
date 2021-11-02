@@ -1,0 +1,19 @@
+Realizando primeiro acesso - canal=sms - cliente=e21e8c3a-764b-4f75-a5a8-16eaa9a22247 - contrato=1343-000002342323
+Realizacao primeiro acesso com sucesso - canal=sms - cliente=e21e8c3a-764b-4f75-a5a8-16eaa9a22247 - contrato=1343-000002342323
+Enviando mensagem - canal=sms - cliente=e21e8c3a-764b-4f75-a5a8-16eaa9a22247 - contrato=1343-000002342323
+Envio de mensagem com sucesso - canal=sms - cliente=e21e8c3a-764b-4f75-a5a8-16eaa9a22247 - contrato=1343-000002342323
+
+Realizando primeiro acesso - canal=email - cliente=ad48a612-7cb3-4112-a0ff-1c2582a548e0 - contrato=3321-0003243433
+Realizacao primeiro acesso com sucesso - canal=email - cliente=ad48a612-7cb3-4112-a0ff-1c2582a548e0 - contrato=3321-0003243433
+Enviando mensagem - canal=email - cliente=ad48a612-7cb3-4112-a0ff-1c2582a548e0 - contrato=3321-0003243433
+Envio de mensagem com sucesso - canal=email - cliente=ad48a612-7cb3-4112-a0ff-1c2582a548e0 - contrato=3321-0003243433
+
+Realizando primeiro acesso - canal=sms - cliente=12345678-764b-4f75-a5a8-987654321 - contrato=1343-000012345987654
+Realizacao primeiro acesso com sucesso - canal=sms - cliente=12345678-764b-4f75-a5a8-987654321 - contrato=1343-000012345987654
+Enviando mensagem - canal=sms - cliente=12345678-764b-4f75-a5a8-987654321 - contrato=1343-000012345987654
+Envio de mensagem com sucesso - canal=sms - cliente=12345678-764b-4f75-a5a8-987654321 - contrato=1343-000012345987654
+
+Realizando primeiro acesso - canal=push - cliente=12345678-764b-4f75-a5a8-987654321 - contrato=2222-456432452222
+Realizacao primeiro acesso com sucesso - canal=push - cliente=12345678-764b-4f75-a5a8-987654321 - contrato=2222-456432452222
+Enviando mensagem - canal=push - cliente=12345678-764b-4f75-a5a8-987654321 - contrato=2222-456432452222
+Envio de mensagem com sucesso - canal=push - cliente=12345678-764b-4f75-a5a8-987654321 - contrato=2222-456432452222
