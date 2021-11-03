@@ -1,1 +1,7 @@
-https://reflectoring.io/profile-specific-logging-spring-boot/
+https://reflectoring.io/profile-specific-logging-spring-boot/
+
+https://mkyong.com/logging/logback-xml-example/
+
+https://www.baeldung.com/logback
+
+https://logback.qos.ch/manual/configuration.html
