@@ -69,3 +69,5 @@ https://dzone.com/articles/java-applications-log-message-analytics-using-splu
 https://docs.rackspace.com/support/how-to/create-sudo-user-in-centos/
 https://devconnected.com/how-to-change-user-on-linux/
 https://devconnected.com/how-to-list-users-and-groups-on-linux/
+
+https://education.splunk.com/catalog
