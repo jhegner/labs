@@ -1,5 +1,6 @@
 package br.com.jhegnerlabs.splunk;
 
+import br.com.jhegnerlabs.log.LogLeitorDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +13,7 @@ public class Leitor {
     private final String leitorId;
     private final String nome;
 
-    Leitor(String nome) {
+    public Leitor(String nome) {
         this.leitorId = UUID.randomUUID().toString();
         this.nome = nome;
     }
@@ -21,12 +22,13 @@ public class Leitor {
         return leitorId;
     }
 
-    public void le(Noticia noticia, Canal canal) {
-        logger.info("Noticia recebida pelo leitorId={} - canal={} - noticiaId={} - dataNoticia={} - noticia:{}",
-                this.leitorId, canal.name().toLowerCase(),
-                noticia.getNoticiaId(),
-                noticia.getDataPublicacao(),
-                noticia);
+    public String getNome() {
+        return nome;
+    }
+
+    public void le(Noticia noticia) {
+        logger.info("Noticia recebida... lendo noticia");
+        logger.info("Payload leitor - {}", new LogLeitorDTO(this, noticia));
     }
 
 }

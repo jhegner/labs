@@ -1,5 +1,7 @@
 package br.com.jhegnerlabs.splunk;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class FakeNewsException extends Exception {
 
     private final Noticia noticia;

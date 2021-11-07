@@ -43,6 +43,8 @@ https://dev.splunk.com/enterprise/docs/developapps/addsupport/logging/loggingbes
 https://community.splunk.com/t5/Getting-Data-In/How-to-log-JSON-to-Splunk-and-optimize-for-spath/m-p/328158
 https://community.splunk.com/t5/Splunk-Search/How-to-filter-a-JSON-data-log-when-one-of-the-fields-in-that/m-p/432192
 
+https://education.splunk.com/catalog
+
 # Learn
 
 https://www.youtube.com/watch?v=tZQLgU5Wxhs
@@ -70,4 +72,9 @@ https://docs.rackspace.com/support/how-to/create-sudo-user-in-centos/
 https://devconnected.com/how-to-change-user-on-linux/
 https://devconnected.com/how-to-list-users-and-groups-on-linux/
 
-https://education.splunk.com/catalog
+# Others
+
+http://logback.qos.ch/manual/mdc.html
+https://stackoverflow.com/questions/28536910/using-different-pattern-for-a-specific-logger-in-logback
+https://stackoverflow.com/questions/11121846/how-to-configure-logback-for-package
+https://reflectoring.io/tracing-with-spring-cloud-sleuth/

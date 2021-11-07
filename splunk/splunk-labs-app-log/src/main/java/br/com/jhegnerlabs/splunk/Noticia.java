@@ -1,5 +1,8 @@
 package br.com.jhegnerlabs.splunk;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -9,6 +12,7 @@ public class Noticia {
     private final String texto;
     private final LocalDate dataPublicacao;
     private final Autor autor;
+    private Publicacao publicacao;
 
     public Noticia(LocalDate dataPublicacao, String texto, Autor autor) {
         this.noticiaId = UUID.randomUUID().toString();
@@ -33,13 +37,16 @@ public class Noticia {
         return autor;
     }
 
+    public Publicacao getPublicacao() {
+        return publicacao;
+    }
+
+    public void setPublicacao(Publicacao publicacao) {
+        this.publicacao = publicacao;
+    }
+
     @Override
     public String toString() {
-        return "Noticia{" +
-                "noticiaId='" + noticiaId + '\'' +
-                ", texto='" + texto + '\'' +
-                ", dataPublicacao=" + dataPublicacao +
-                ", autor=" + autor +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
     }
 }

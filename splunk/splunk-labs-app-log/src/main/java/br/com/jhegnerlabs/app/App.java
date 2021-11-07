@@ -1,8 +1,12 @@
-package br.com.jhegnerlabs.splunk;
+package br.com.jhegnerlabs.app;
 
+import br.com.jhegnerlabs.log.LogLeitorDTO;
+import br.com.jhegnerlabs.log.LogNoticiaDTO;
+import br.com.jhegnerlabs.splunk.*;
 import org.apache.commons.lang3.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,8 +34,9 @@ public class App {
         leitores[5] = new Leitor("Kaka");
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, FakeNewsException {
 
+        logger.info("***** Iniciando a aplicacao *****");
 
         Assinatura assinatura1 = new Assinatura(Canal.EMAIL,
                 Arrays.asList(leitores[0], leitores[1], leitores[2]));
@@ -51,24 +56,31 @@ public class App {
                 assinatura3,
                 assinatura4);
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 200500; i++) {
+
+            Publicacao publicacao = new Publicacao(getCanal());
 
             try {
-                Publicacao publicacao = new Publicacao(getCanal());
+
+                MDC.put("codigo_publicacao", publicacao.getPublicacaoId());
+
                 Noticia noticia = publicacao.nova();
+
+                logger.info("Payload da noticia - {}", new LogNoticiaDTO(noticia));
+
                 assinaturas.forEach(assinatura -> {
                     if (assinatura.getCanal() == publicacao.getCanal()) {
                         assinatura.getLeitores().forEach(leitor -> {
-                            leitor.le(noticia, publicacao.getCanal());
+                            leitor.le(noticia);
                         });
                     }
                 });
+
             } catch (FakeNewsException ex) {
-                logger.error(ex.getMessage() + " - noticiaId={} - dataNoticia={} - autor={} - noticia:{}",
-                        ex.getNoticia().getNoticiaId(),
-                        ex.getNoticia().getDataPublicacao(),
-                        ex.getNoticia().getAutor().getNome(),
-                        ex.getNoticia());
+                logger.error("Erro na publicacao da noticia", ex);
+
+            } finally {
+                MDC.remove(publicacao.getPublicacaoId());
             }
         }
     }

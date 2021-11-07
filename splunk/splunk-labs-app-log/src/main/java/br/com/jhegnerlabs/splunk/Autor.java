@@ -1,5 +1,8 @@
 package br.com.jhegnerlabs.splunk;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 public class Autor {
 
     private final String nome;
@@ -14,8 +17,6 @@ public class Autor {
 
     @Override
     public String toString() {
-        return "Autor{" +
-                "nome='" + nome + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
     }
 }

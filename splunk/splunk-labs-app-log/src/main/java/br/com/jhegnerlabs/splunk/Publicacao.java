@@ -9,14 +9,17 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.UUID;
 
 public class Publicacao {
 
     static final Logger logger = LoggerFactory.getLogger(Publicacao.class);
 
+    private final String publicacaoId;
     private final Canal canal;
 
     public Publicacao(Canal canal) {
+        this.publicacaoId = UUID.randomUUID().toString();
         this.canal = canal;
     }
 
@@ -34,22 +37,21 @@ public class Publicacao {
 
         Noticia noticia = new Noticia(getDataPublicacao(), getTexto(), getAutor());
 
-        logger.info("Publicando nova noticia - noticiaId={} - autor={}",
-                noticia.getNoticiaId(), noticia.getAutor().getNome());
+        logger.info("Publicando nova noticia");
 
         if (isFakeNews(noticia)) {
             throw new FakeNewsException("Noticia identificada como fakenews", noticia);
         }
 
-        logger.info("Publicacao realizada com suceso - noticiaId={} - autor={}",
-                noticia.getNoticiaId(), noticia.getAutor().getNome());
+        logger.info("Publicacao realizada com suceso");
+
+        noticia.setPublicacao(this);
 
         return noticia;
     }
 
     private boolean isFakeNews(Noticia noticia) {
-        logger.info("Verificando se noticia eh fakenews - noticiaId={} - autor={}",
-                noticia.getNoticiaId(), noticia.getAutor().getNome());
+        logger.info("Verificando se noticia eh fakenews");
         return RandomUtils.nextBoolean();
     }
 
@@ -77,5 +79,9 @@ public class Publicacao {
 
     public Canal getCanal() {
         return canal;
+    }
+
+    public String getPublicacaoId() {
+        return publicacaoId;
     }
 }
