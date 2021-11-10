@@ -43,6 +43,11 @@ https://dev.splunk.com/enterprise/docs/developapps/addsupport/logging/loggingbes
 https://community.splunk.com/t5/Getting-Data-In/How-to-log-JSON-to-Splunk-and-optimize-for-spath/m-p/328158
 https://community.splunk.com/t5/Splunk-Search/How-to-filter-a-JSON-data-log-when-one-of-the-fields-in-that/m-p/432192
 
+https://community.splunk.com/t5/Splunk-Search/How-to-extract-fields-from-JSON-data-in-Splunk/m-p/274976
+https://docs.splunk.com/Documentation/Splunk/6.3.3/SearchReference/spath
+https://dev.splunk.com/enterprise/docs/devtools/customsearchcommands/createcustomsearchcmd/
+https://www.crestdatasys.com/blogs/how-to-extract-complex-field-from-nested-json-events-using-splunk-spl/
+
 https://education.splunk.com/catalog
 
 # Learn
