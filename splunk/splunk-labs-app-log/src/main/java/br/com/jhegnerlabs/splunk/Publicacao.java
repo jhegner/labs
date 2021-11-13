@@ -74,7 +74,7 @@ public class Publicacao {
     }
 
     private Autor getAutor() {
-        return autores[RandomUtils.nextInt(0, 4)];
+        return autores[RandomUtils.nextInt(0, 5)];
     }
 
     public Canal getCanal() {

@@ -56,7 +56,7 @@ public class App {
                 assinatura3,
                 assinatura4);
 
-        for (int i = 0; i < 200500; i++) {
+        for (int i = 0; i < 950000; i++) {
 
             Publicacao publicacao = new Publicacao(getCanal());
 
@@ -86,6 +86,6 @@ public class App {
     }
 
     private static Canal getCanal() {
-        return canais[RandomUtils.nextInt(0, 3)];
+        return canais[RandomUtils.nextInt(0, 4)];
     }
 }
