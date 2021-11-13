@@ -83,3 +83,6 @@ http://logback.qos.ch/manual/mdc.html
 https://stackoverflow.com/questions/28536910/using-different-pattern-for-a-specific-logger-in-logback
 https://stackoverflow.com/questions/11121846/how-to-configure-logback-for-package
 https://reflectoring.io/tracing-with-spring-cloud-sleuth/
+https://sematext.com/blog/logback-tutorial/
+https://stackify.com/logging-logback/
+https://stackoverflow.com/questions/14168684/creating-a-custom-layout-in-logback
