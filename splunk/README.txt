@@ -54,6 +54,7 @@ https://education.splunk.com/catalog
 
 https://www.youtube.com/watch?v=tZQLgU5Wxhs
 https://www.youtube.com/watch?v=xtyH_6iMxwA
+https://www.youtube.com/watch?v=C3k_v0lzmaM
 
 # Dash
 
@@ -86,3 +87,30 @@ https://reflectoring.io/tracing-with-spring-cloud-sleuth/
 https://sematext.com/blog/logback-tutorial/
 https://stackify.com/logging-logback/
 https://stackoverflow.com/questions/14168684/creating-a-custom-layout-in-logback
+https://github.com/logfellow/logstash-logback-encoder
+
+# Comandos Splunk
+
+* Table command -> Retorna uma tabela que é formada apenas pelos campos especificados como argumentos
+index="index_mylabs" | table _time sourcetype source date_hour
+
+* Rename command -> Renomeia o nome do campo informado
+index="index_mylabs" | table _time sourcetype source date_hour | rename source as origem date_hour as hora
+
+* Fields command -> Mantem ou remove campos do resultado baseado no criterio de busca
+index="index_mylabs" | table _time sourcetype source date_hour | rename source as origem date_hour as hora | fields - origem
+
+* Dedup command -> Remove os eventos que contem combinações de eventos identicas
+index="index_mylabs" | table _time source sourcetype | dedup source
+
+* Sorts command -> Ordena todos os resultados com base os campos especificados. O primeiro argumento determina a quantidade de resultados
+index="index_mylabs" | table _time source sourcetype | dedup source | sort _time
+index="index_mylabs" | table _time source sourcetype | dedup source | sort _time desc
+index="index_mylabs" | table _time source sourcetype | dedup source | sort -_time // decrescente
+index="index_mylabs" | table _time source sourcetype | dedup source | sort +_time // crescente
+
+* Top command -> Pesquisa os maiores valores comuns dos campos informados. Calcula a quantidade e percentagem da frequencia nos eventos
+index="index_mylabs" | top source
+
+* Rare command -> Apresenta o menor valor comum no campo
+index="index_mylabs" | rare source
