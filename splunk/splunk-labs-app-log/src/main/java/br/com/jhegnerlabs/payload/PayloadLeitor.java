@@ -1,18 +1,18 @@
-package br.com.jhegnerlabs.log;
+package br.com.jhegnerlabs.payload;
 
 import br.com.jhegnerlabs.splunk.Leitor;
 import br.com.jhegnerlabs.splunk.Noticia;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class LogLeitorDTO {
+public class PayloadLeitor {
 
     private final String leitorId;
     private final String nome;
     private final String noticiaId;
     private final String canal;
 
-    public LogLeitorDTO(Leitor leitor, Noticia noticia) {
+    public PayloadLeitor(Leitor leitor, Noticia noticia) {
         this.leitorId = leitor.getLeitorId();
         this.nome = leitor.getNome();
         this.noticiaId = noticia.getNoticiaId();

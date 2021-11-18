@@ -1,8 +1,9 @@
 package br.com.jhegnerlabs.splunk;
 
-import br.com.jhegnerlabs.log.LogLeitorDTO;
+import br.com.jhegnerlabs.payload.PayloadLeitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 import java.util.UUID;
 
@@ -27,8 +28,13 @@ public class Leitor {
     }
 
     public void le(Noticia noticia) {
-        logger.info("Noticia recebida... lendo noticia");
-        logger.info("Payload leitor - {}", new LogLeitorDTO(this, noticia));
+
+        logger.info("Noticia recebida... lendo o text da noticia - {}", noticia.getTexto());
+
+        MDC.put("payload", new PayloadLeitor(this, noticia).toString());
+        logger.info("Payload leitor");
+        MDC.remove("payload");
+
     }
 
 }

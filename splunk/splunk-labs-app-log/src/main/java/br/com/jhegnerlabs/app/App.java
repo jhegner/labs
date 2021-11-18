@@ -1,7 +1,6 @@
 package br.com.jhegnerlabs.app;
 
-import br.com.jhegnerlabs.log.LogLeitorDTO;
-import br.com.jhegnerlabs.log.LogNoticiaDTO;
+import br.com.jhegnerlabs.payload.PayloadNoticia;
 import br.com.jhegnerlabs.splunk.*;
 import org.apache.commons.lang3.RandomUtils;
 import org.slf4j.Logger;
@@ -34,7 +33,7 @@ public class App {
         leitores[5] = new Leitor("Kaka");
     }
 
-    public static void main(String[] args) throws InterruptedException, FakeNewsException {
+    public static void main(String[] args) {
 
         logger.info("***** Iniciando a aplicacao *****");
 
@@ -56,31 +55,27 @@ public class App {
                 assinatura3,
                 assinatura4);
 
-        for (int i = 0; i < 950000; i++) {
+        for (int i = 0; i < 10; i++) {
 
             Publicacao publicacao = new Publicacao(getCanal());
 
             try {
 
-                MDC.put("codigo_publicacao", publicacao.getPublicacaoId());
-
+                MDC.put("transaction_id", publicacao.getPublicacaoId());
                 Noticia noticia = publicacao.nova();
 
-                logger.info("Payload da noticia - {}", new LogNoticiaDTO(noticia));
+                MDC.put("payload", new PayloadNoticia(noticia).toString());
+                logger.info("Payload da noticia");
+                MDC.remove("payload");
 
                 assinaturas.forEach(assinatura -> {
                     if (assinatura.getCanal() == publicacao.getCanal()) {
-                        assinatura.getLeitores().forEach(leitor -> {
-                            leitor.le(noticia);
-                        });
+                        assinatura.getLeitores().forEach(leitor -> leitor.le(noticia));
                     }
                 });
 
             } catch (FakeNewsException ex) {
                 logger.error("Erro na publicacao da noticia", ex);
-
-            } finally {
-                MDC.remove(publicacao.getPublicacaoId());
             }
         }
     }
