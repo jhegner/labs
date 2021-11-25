@@ -48,6 +48,10 @@ https://docs.splunk.com/Documentation/Splunk/6.3.3/SearchReference/spath
 https://dev.splunk.com/enterprise/docs/devtools/customsearchcommands/createcustomsearchcmd/
 https://www.crestdatasys.com/blogs/how-to-extract-complex-field-from-nested-json-events-using-splunk-spl/
 
+https://docs.splunk.com/Documentation/Splunk/8.2.2/SearchReference/Stats?ref=hk#Basic_examples (Basic examples)
+https://docs.splunk.com/Documentation/SplunkCloud/latest/SearchReference/DateandTimeFunctions
+https://community.splunk.com/t5/Splunk-Search/How-to-find-events-between-date-ranges/m-p/320981
+
 https://education.splunk.com/catalog
 
 # Learn
@@ -55,6 +59,8 @@ https://education.splunk.com/catalog
 https://www.youtube.com/watch?v=tZQLgU5Wxhs
 https://www.youtube.com/watch?v=xtyH_6iMxwA
 https://www.youtube.com/watch?v=C3k_v0lzmaM
+https://www.youtube.com/watch?v=tRfm9RMAkzk&t=2s
+https://www.youtube.com/watch?v=bpP2tZPoK8M
 
 # Dash
 
@@ -114,3 +120,25 @@ index="index_mylabs" | top source
 
 * Rare command -> Apresenta o menor valor comum no campo
 index="index_mylabs" | rare source
+
+# Consultas nos logs
+
+Pesquisa autor por nome - index="index_mylabs" | spath payload | search payload.autor=magali
+Pesquisa por canal
+Pesquisa por noticia
+Pesquisa por leitor
+Pesquisa noticias publicadas por um autor
+Pesquisa noticias lidas por um leitor
+Pesquisa noticias por data de publicacao
+Pesquisa autores por data de publicacao
+
+Pesquisa quantidade de autores - index="index_mylabs" message = "Payload leitor" | spath payload | stats count(payload.nome), distinct_count(payload.nome), values(payload.nome)
+Pesquisa quantidade de canais
+Pesquisa quantidade de noticias
+Pesquisa quantidade de noticias publicadas por um autor
+Pesquisa quantidade de noticias publicadas por autores
+Pesquisa quantidade de noticias publicadas por canal
+Pesquisa quantidade de noticias fakenews
+Pesquisa quantidade de fakenews por autor
+Pesquisa quantidade de noticias lidas por leitor
+Pesquisa quantidade de noticias por data de publicacao
