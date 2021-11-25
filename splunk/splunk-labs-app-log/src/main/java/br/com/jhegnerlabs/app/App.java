@@ -55,7 +55,7 @@ public class App {
                 assinatura3,
                 assinatura4);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 550999; i++) {
 
             Publicacao publicacao = new Publicacao(getCanal());
 
