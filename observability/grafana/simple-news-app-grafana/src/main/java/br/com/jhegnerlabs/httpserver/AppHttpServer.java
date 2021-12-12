@@ -1,7 +1,7 @@
 package br.com.jhegnerlabs.httpserver;
 
 import com.sun.net.httpserver.HttpServer;
-import io.micrometer.prometheus.PrometheusConfig;
+import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.prometheus.PrometheusMeterRegistry;
 
 import java.io.IOException;
@@ -10,17 +10,13 @@ import java.net.InetSocketAddress;
 
 public final class AppHttpServer {
 
-    private static final PrometheusMeterRegistry prometheusRegistry;
-
-    static {
-
-        prometheusRegistry = new PrometheusMeterRegistry(PrometheusConfig.DEFAULT);
+    public static void start(PrometheusMeterRegistry prometheusMeterRegistry) {
 
         try {
 
             HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
             server.createContext("/prometheus", httpExchange -> {
-                String response = prometheusRegistry.scrape();
+                String response = prometheusMeterRegistry.scrape();
                 httpExchange.sendResponseHeaders(200, response.getBytes().length);
                 try (OutputStream os = httpExchange.getResponseBody()) {
                     os.write(response.getBytes());
@@ -32,9 +28,5 @@ public final class AppHttpServer {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static PrometheusMeterRegistry getPrometheusRegistry() {
-        return prometheusRegistry;
     }
 }

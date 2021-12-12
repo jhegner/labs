@@ -71,8 +71,7 @@ public class App {
                 logger.info("Payload da noticia");
                 MDC.remove("payload");
 
-                Metrica novaMetrica = new Metrica();
-                novaMetrica.registraMetrica(MetricaType.NOTICIAS, noticia.getAutor().getNome(), noticia.getDataPublicacao());
+                new Metrica().registraMetrica(MetricaType.NOTICIAS, noticia);
 
                 assinaturas.forEach(assinatura -> {
                     if (assinatura.getCanal() == publicacao.getCanal()) {

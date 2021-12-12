@@ -2,7 +2,7 @@ package br.com.jhegnerlabs.metrics;
 
 public enum MetricaType {
 
-    NOTICIAS("noticias", "quantidade de noticias publicadas");
+    NOTICIAS("noticias", "A quantidade de noticias publicadas");
 
 
     private final String metrica;
