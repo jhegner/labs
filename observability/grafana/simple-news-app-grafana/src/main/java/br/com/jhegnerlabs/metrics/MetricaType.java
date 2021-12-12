@@ -1,6 +1,6 @@
 package br.com.jhegnerlabs.metrics;
 
-public enum MetricaTypeEnum {
+public enum MetricaType {
 
     NOTICIAS("noticias", "quantidade de noticias publicadas");
 
@@ -8,7 +8,7 @@ public enum MetricaTypeEnum {
     private final String metrica;
     private final String descricao;
 
-    MetricaTypeEnum(String metrica, String descricao) {
+    MetricaType(String metrica, String descricao) {
         this.metrica = metrica;
         this.descricao = descricao;
     }

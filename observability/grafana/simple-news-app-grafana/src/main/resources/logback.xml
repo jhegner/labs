@@ -4,7 +4,7 @@
     <property name="LOG_DIR" value="D:/Data/log"/>
 
     <appender name="ROLLING-FILE-TO-SPLUNK" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_DIR}/splunk-labs-app.log</file>
+        <file>${LOG_DIR}/simple-news-app-grafana.log</file>
         <append>false</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/splunk-labs-app-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>

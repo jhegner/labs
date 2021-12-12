@@ -1,8 +1,9 @@
 package br.com.jhegnerlabs.app;
 
 import br.com.jhegnerlabs.domain.*;
+import br.com.jhegnerlabs.httpserver.AppHttpServer;
 import br.com.jhegnerlabs.metrics.Metrica;
-import br.com.jhegnerlabs.metrics.MetricaTypeEnum;
+import br.com.jhegnerlabs.metrics.MetricaType;
 import br.com.jhegnerlabs.payload.PayloadNoticia;
 import org.apache.commons.lang3.RandomUtils;
 import org.slf4j.Logger;
@@ -57,7 +58,7 @@ public class App {
                 assinatura3,
                 assinatura4);
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 10; i++) {
 
             Publicacao publicacao = new Publicacao(getCanal());
 
@@ -71,7 +72,7 @@ public class App {
                 MDC.remove("payload");
 
                 Metrica novaMetrica = new Metrica();
-                novaMetrica.registraMetrica(MetricaTypeEnum.NOTICIAS, noticia.getAutor().getNome(), noticia.getDataPublicacao());
+                novaMetrica.registraMetrica(MetricaType.NOTICIAS, noticia.getAutor().getNome(), noticia.getDataPublicacao());
 
                 assinaturas.forEach(assinatura -> {
                     if (assinatura.getCanal() == publicacao.getCanal()) {
