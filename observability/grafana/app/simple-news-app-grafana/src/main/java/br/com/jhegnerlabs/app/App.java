@@ -58,7 +58,7 @@ public class App {
                 assinatura3,
                 assinatura4);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2000; i++) {
 
             Publicacao publicacao = new Publicacao(getCanal());
 
@@ -66,6 +66,8 @@ public class App {
 
                 MDC.put("transaction_id", publicacao.getPublicacaoId());
                 Noticia noticia = publicacao.nova();
+
+                new Metrica().registraMetrica(MetricaType.CANAL_PUBLICACAO, noticia.getPublicacao().getCanal());
 
                 MDC.put("payload", new PayloadNoticia(noticia).toString());
                 logger.info("Payload da noticia");
@@ -81,6 +83,7 @@ public class App {
 
             } catch (FakeNewsException ex) {
                 logger.error("Erro na publicacao da noticia", ex);
+                new Metrica().registraMetrica(MetricaType.FAKE_NEWS, ex.getNoticia().getAutor());
             }
         }
     }

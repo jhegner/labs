@@ -1,14 +1,13 @@
 package br.com.jhegnerlabs.httpserver;
 
 import com.sun.net.httpserver.HttpServer;
-import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.prometheus.PrometheusMeterRegistry;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
-public final class AppHttpServer {
+public class AppHttpServer {
 
     public static void start(PrometheusMeterRegistry prometheusMeterRegistry) {
 
