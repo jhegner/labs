@@ -14,7 +14,7 @@ public class App {
 
         logger.info("***** Iniciando a aplicacao *****");
         Timer timer = new Timer();
-        timer.schedule(new TimerTaskService(), 0,120000L);
+        timer.schedule(new TimerTaskService(), 0, 10000L);
 
     }
 
