@@ -13,6 +13,7 @@
         <maven.compiler.target>16</maven.compiler.target>
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
         <junit-jupiter-api.version>5.8.2</junit-jupiter-api.version>
+        <fixture-factory.version>3.1.0</fixture-factory.version>
     </properties>
 
     <dependencies>
@@ -26,6 +27,11 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit-jupiter-api.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.six2six</groupId>
+            <artifactId>fixture-factory</artifactId>
+            <version>${fixture-factory.version}</version>
         </dependency>
     </dependencies>
 
