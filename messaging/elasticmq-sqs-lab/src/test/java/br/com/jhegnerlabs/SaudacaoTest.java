@@ -14,6 +14,7 @@ import org.junit.jupiter.api.*;
 import java.util.Arrays;
 import java.util.List;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class SaudacaoTest {
 
     private static final String QUEUE_NAME = "mensagem-de-saudacao-em-varios-idiomas";
@@ -61,7 +62,7 @@ class SaudacaoTest {
     }
 
     @Order(2)
-    @RepeatedTest(value = 3)
+    @RepeatedTest(value = 5)
     @DisplayName("Deve receber mensagens da fila sqs com sucesso")
     public void test_deve_receber_mensagem_fila_sqs_com_sucesso() {
 
@@ -82,7 +83,7 @@ class SaudacaoTest {
                     .withReceiptHandle(message.getReceiptHandle());
             amazonSqsClient.deleteMessage(deleteRequest);
 
-            Assertions.assertTrue(messages.size() > 1);
+            Assertions.assertTrue(messages.size() > 0);
         });
 
         Assertions.assertNotNull(messages);
