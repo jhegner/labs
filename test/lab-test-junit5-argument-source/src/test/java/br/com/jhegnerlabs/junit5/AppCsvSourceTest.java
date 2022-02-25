@@ -1,12 +1,11 @@
 package br.com.jhegnerlabs.junit5;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppTest {
+class AppCsvSourceTest {
 
     @ParameterizedTest
     @CsvSource({
@@ -43,8 +42,7 @@ class AppTest {
     }
 
     @ParameterizedTest
-//    @CsvSource(value = {"uva, abacaxi"})
-    @CsvSource({ "apple, 'lemon, lime'" })
+    @CsvSource({"apple, 'lemon, lime'"})
     void test_com_csv_source_4(String fruta1, String fruta2) {
         assertNotEquals(fruta1, fruta2);
     }
@@ -57,7 +55,7 @@ class AppTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = { " maça, kiwi, ###, NULL, uva" }, nullValues = {"AAA", "###", "NULL"})
+    @CsvSource(value = {" maça, kiwi, ###, NULL, uva"}, nullValues = {"AAA", "###", "NULL"})
     void test_com_csv_source_6(String fruta1, String fruta2, String fruta3, String fruta4, String fruta5) {
         assertNotNull(fruta1);
         assertNotNull(fruta2);
@@ -71,8 +69,6 @@ class AppTest {
     void test_com_csv_source_7(String fruta1, String fruta2) {
         assertNotEquals(fruta1, fruta2);
     }
-
-
 
 
 }
