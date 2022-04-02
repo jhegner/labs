@@ -1,0 +1,13 @@
+<!-- <form> -->
+    <div class="is-flex is-justify-content-space-between is-align-items-center">
+        <div class="control">
+          <label class="checkbox">
+            <input [(ngModel)]="isChecked" (change)="onCheck()"type="checkbox" class="checkbox"  name="terms" value="1" />
+            <span class="pl-1">Eu concordo...</span>
+          </label>
+        </div>
+        <div class="control">
+          <button class="button is-primary is-fullwidth" type="submit" [disabled]="!isChecked">Enviar</button>
+        </div>
+      </div>
+<!-- </form>  -->
