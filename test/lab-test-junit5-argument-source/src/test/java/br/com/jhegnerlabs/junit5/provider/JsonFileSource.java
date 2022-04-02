@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.ANNOTATION_TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-@ArgumentsSource(JsonFileArgumentsProvider.class)
+@ArgumentsSource(JsonFileArgumentsProvider2.class)
 public @interface JsonFileSource {
 
     String[] resources() default {};
