@@ -1,0 +1,32 @@
+{
+  "frutas": [
+    {
+      "nome": "banana",
+      "calorias": "89 kcal"
+    },
+    {
+      "nome": "maça",
+      "calorias": "58 kcal"
+    },
+    {
+      "nome": "limao",
+      "calorias": "39 kcal"
+    },
+    {
+      "nome": "uva",
+      "calorias": "70 kcal"
+    },
+    {
+      "nome": "laranja",
+      "calorias": "45 kcal"
+    },
+    {
+      "nome": "pera",
+      "calorias": "63 kcal"
+    },
+    {
+      "nome": "mamao",
+      "calorias": "80 kcal"
+    }
+  ]
+}

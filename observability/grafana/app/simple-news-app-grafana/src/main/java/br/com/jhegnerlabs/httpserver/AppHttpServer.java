@@ -14,7 +14,7 @@ public class AppHttpServer {
         try {
 
             HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
-            server.createContext("/prometheus", httpExchange -> {
+            server.createContext("/metrics", httpExchange -> {
                 String response = prometheusMeterRegistry.scrape();
                 httpExchange.sendResponseHeaders(200, response.getBytes().length);
                 try (OutputStream os = httpExchange.getResponseBody()) {
