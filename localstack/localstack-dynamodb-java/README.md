@@ -271,3 +271,119 @@ aws dynamodb put-item \
       }' \
     --return-consumed-capacity TOTAL --endpoint-url http://127.0.0.1:4566
 ```
+
+# Caso de uso
+
+## Modelagem de relacionamento um-para-muitos
+
+Esse tipo de relacionamento ocorre quando um objeto em particular é dono ou a fonte de um conjunto de 
+sub-elementos. Por exemplo:
+
+- Um cliente pode adicionar no carrinho de compras vários produtos
+- Uma pessoa (jurídica ou física) pode abrir vários processos num departamento público
+- Uma empresa pode ter vários projetos com vários funcionários designados
+
+Para alcançar esse propósito temos o conceito importante de desnormalização dos dados e algumas estratégias, como:
+
+- Desnormalização utilizando atributo complexo
+- Duplicação dos dados
+- Chave primária composta + uso da API de consulta do DynamoDB
+- etc
+
+Vamos usar a abordagem - Chave primária composta + uso da API de consulta do DynamoDB em uma única tabela.
+
+Fonte:
+
+[AWS Developer Guide - Modeling Relational Data in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-modeling-nosql.html)
+[alexdebrie - dynamodb-one-to-many](https://www.alexdebrie.com/posts/dynamodb-one-to-many/)
+[Comparing multi and single table approaches](https://serverlessfirst.com/dynamodb-modelling-single-vs-multi-table/)
+
+
+## Informações na tabela - Nome: TB_CONTROLE_PROCESSO_PESSOA_JURIDICA
+
+### Info. Processo
+
+PK - Id Pessoa Juridica
+SK - Id Processo
+Id Pessoa Juridica
+Id Processo
+Tipo Processo [PASSAPORTE, CNH, ALVARÁ]
+Data Inicio
+Data Fim
+Status [PENDENTE, CANCELADO, FINALIZADO, REVISÃO]
+Descricao
+
+### Info. Documento
+
+PK - Id Pessoa Juridica
+SK - Id Processo # DOC # Id Documento
+Id Pessoa Juridica
+Id Processo
+Id Documento
+Nome Documento
+Formato [ PDF, WORD, PPT, TXT, JPG, PNG ]
+Tamanho
+Data entrega
+Tags
+
+### Info. Assinatura
+
+PK - Id Pessoa Juridica
+SK - Id Processo # ASS # Id Assinatura
+Id Assinatura
+Id Processo
+Data Expiracao
+Tags
+
+### Info. Signatario
+
+PK - Id Pessoa Juridica
+SK - Id Processo # SIG # Id Pessoa Fisica
+Id Pessoa Fisica
+Data Assinatura
+Nome Signatario
+Status [ ASSINOU, PENDENTE ]
+
+## Dados - Pessoas / Documentos / Processos
+
+Id Pessoa Juridica - e86fcdfb-c200-4737-8b1c-7923e25e0843
+Id Pessoa Juridica - 7747a1ac-ac7e-4bed-ac85-cdef4c7fa06c
+
+Id Processo - 9817be8b-309c-417f-8ff9-fac96655a937
+Id Processo - 89e27526-3de1-4dd1-bbc4-50f0eb6604b8
+
+Id Processo - e8b0fd3a-a75f-4497-b379-cbfb9c41c840
+
+Id Documento - 0b5a2cc2-ede3-466f-8aa1-f866e969bdce
+Id Documento - 585f658a-5609-4608-8d14-66c0172d0bec
+
+Id Pessoa Fisica - 74a738ef-3d35-4c8e-8b92-74161a0f2c55
+Id Pessoa Fisica - 2a82d829-63a9-49bb-8ff5-4e7db7ef4987
+Id Pessoa Fisica - c68f5bfe-fe7e-4c22-9db4-364eb894d9d0
+
+Cenário 1
+
+### Info. Processo
+PK => PJ#e86fcdfb-c200-4737-8b1c-7923e25e0843
+SK => PR#9817be8b-309c-417f-8ff9-fac96655a937
+Id Pessoa Juridica => e86fcdfb-c200-4737-8b1c-7923e25e0843
+Id Processo => 9817be8b-309c-417f-8ff9-fac96655a937
+Tipo Processo => PASSAPORTE
+Data Inicio => 2022-06-01
+Data Fim => ''
+Status => PENDENTE
+Descricao => Processo para obtenção de passaporte
+
+### Info. Documento
+PK => PJ#e86fcdfb-c200-4737-8b1c-7923e25e0843
+SK => PR#9817be8b-309c-417f-8ff9-fac96655a937#DOC#0b5a2cc2-ede3-466f-8aa1-f866e969bdce
+Id Pessoa Juridica => e86fcdfb-c200-4737-8b1c-7923e25e0843
+Id Processo => 9817be8b-309c-417f-8ff9-fac96655a937
+Nome Documento => 9817be8b-309c-417f-8ff9-fac96655a937_PASSAPORTE.pdf
+Formato => PDF
+Tamanho => 2MB
+Data entrega => ''
+Tags => ''
+
+### Info. Assinatura
+PK => 
