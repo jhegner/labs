@@ -107,6 +107,10 @@ Este endpoint foi definido no arquivo `compose.yaml` como argumento do atributo 
 
 ## SQS
 
+O AWS SQS (Simple Queue Service) é um serviço de filas de mensagens gerenciado pelo cloud provider, que permite desacoplamento e escabilidade de sistemas distribuidos.
+
+https://aws.amazon.com/pt/sqs/
+
 ### Listar as filas criadas 
 
 `λ aws sqs list-queues --endpoint-url="http://127.0.0.1:4566"`
@@ -204,4 +208,66 @@ Saida:
         "ApproximateNumberOfMessages": "1"
     }                                     
 }                                         
+```
+
+### Apagar uma mensagem (Deve ser utilizado o ReceiptHandle e não o MessageId)
+
+`
+λ aws sqs delete-message --queue-url http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue --endpoint-url http://127.0.0.1:4566 --receipt-handle YzAyYTVhZWEtMTRlYi00NjJjLThjNDgtYTc4YWUxNmJlNDBhIGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6bGFicy1sb2NhbHN0YWNrLWR5bmFtb2RiLWphdmEtcXVldWUgMjFiNDQ5YmUtMTllMi00NWIwLTkxODYtNDRmOWY2N2YxZDRjIDE2NTQwNTQwODIuNTg5OTY4Mg==
+`
+
+## DynamoDB
+
+AWS DynamoDB é um serviço de banco de dados NoSQL gerenciado pelo cloud provider.
+
+### Instalação
+
+Podemos utilizar o Dynamo como:
+
+- Serviço web (AWS Service)
+- Local (download)
+- Docker (compose)
+- Dependência (Apache Maven)
+
+[Mais informações - Deploying DynamoDB Locally on Your Computer](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html)
+
+### Conceitos básicos
+
+Os componentes principais para utilização do DynamoDB são:
+
+- Tabelas
+- Itens
+- Atributos
+- Chave primária (Partition Key e Sorted Key)
+- Indíces secundários
+
+[Mais informações - Core Components of Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html)
+
+
+### Listar tabelas utilizando o aws cli
+
+```
+
+```
+
+### Criar uma tabela utilizando o aws cli
+
+```
+aws dynamodb create-table \
+    --table-name MusicCollection \
+    --attribute-definitions AttributeName=Artist,AttributeType=S AttributeName=SongTitle,AttributeType=S \
+    --key-schema AttributeName=Artist,KeyType=HASH AttributeName=SongTitle,KeyType=RANGE \
+    --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://127.0.0.1:4566
+```
+### Adicionar novo item com o aws cli
+
+```
+aws dynamodb put-item \
+    --table-name MusicCollection \
+    --item '{
+        "Artist": {"S": "No One You Know"},
+        "SongTitle": {"S": "Call Me Today"} ,
+        "AlbumTitle": {"S": "Somewhat Famous"} 
+      }' \
+    --return-consumed-capacity TOTAL --endpoint-url http://127.0.0.1:4566
 ```
