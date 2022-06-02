@@ -274,6 +274,18 @@ aws dynamodb put-item \
 
 # Caso de uso
 
+Sistema para controle de processos de pessoas jurídicas
+
+## Perguntas importantes para modelagem do caso de uso
+
+* Como consultar os processos de uma pessoa jurídica ?
+* Como consultar as informações de um processo ?
+* Como obter as informações do documento de um processo ?
+* Como consultar todos os documentos de uma pessoa jurídica ?
+* Como consultar os signatários do documento de um processo?
+
+Estas perguntas permitem identificar os requisitos para acesso e manipulação dos dados no DynamoDB. Uma avaliação pode ser feita com base nos critérios dos filtros e interações dos consumidores.
+
 ## Modelagem de relacionamento um-para-muitos
 
 Esse tipo de relacionamento ocorre quando um objeto em particular é dono ou a fonte de um conjunto de 
@@ -303,46 +315,46 @@ Fonte:
 
 ### Info. Processo
 
-PK - Id Pessoa Juridica
-SK - Id Processo
-Id Pessoa Juridica
-Id Processo
-Tipo Processo [PASSAPORTE, CNH, ALVARÁ]
-Data Inicio
-Data Fim
-Status [PENDENTE, CANCELADO, FINALIZADO, REVISÃO]
-Descricao
+- PK - Id Pessoa Juridica
+- SK - Id Processo
+- Id Pessoa Juridica
+- Id Processo
+- Tipo Processo [PASSAPORTE, CNH, ALVARÁ]
+- Data Inicio
+- Data Fim
+- Status [PENDENTE, CANCELADO, FINALIZADO, REVISÃO]
+- Descricao
 
 ### Info. Documento
 
-PK - Id Pessoa Juridica
-SK - Id Processo # DOC # Id Documento
-Id Pessoa Juridica
-Id Processo
-Id Documento
-Nome Documento
-Formato [ PDF, WORD, PPT, TXT, JPG, PNG ]
-Tamanho
-Data entrega
-Tags
+- PK - Id Pessoa Juridica
+- SK - Id Processo # DOC # Id Documento
+- Id Pessoa Juridica
+- Id Processo
+- Id Documento
+- Nome Documento
+- Formato [ PDF, WORD, PPT, TXT, JPG, PNG ]
+- Tamanho
+- Data entrega
+- Tags
 
 ### Info. Assinatura
 
-PK - Id Pessoa Juridica
-SK - Id Processo # ASS # Id Assinatura
-Id Assinatura
-Id Processo
-Data Expiracao
-Tags
+- PK - Id Pessoa Juridica
+- SK - Id Processo # ASS # Id Assinatura
+- Id Assinatura
+- Id Processo
+- Data Expiracao
+- Tags
 
 ### Info. Signatario
 
-PK - Id Pessoa Juridica
-SK - Id Processo # SIG # Id Pessoa Fisica
-Id Pessoa Fisica
-Data Assinatura
-Nome Signatario
-Status [ ASSINOU, PENDENTE ]
+- PK - Id Pessoa Juridica
+- SK - Id Processo # SIG # Id Pessoa Fisica
+- Id Pessoa Fisica
+- Data Assinatura
+- Nome Signatario
+- Status [ ASSINOU, PENDENTE ]
 
 ## Dados - Pessoas / Documentos / Processos
 
@@ -359,31 +371,46 @@ Id Documento - 585f658a-5609-4608-8d14-66c0172d0bec
 
 Id Pessoa Fisica - 74a738ef-3d35-4c8e-8b92-74161a0f2c55
 Id Pessoa Fisica - 2a82d829-63a9-49bb-8ff5-4e7db7ef4987
-Id Pessoa Fisica - c68f5bfe-fe7e-4c22-9db4-364eb894d9d0
+
+Id Assinatura  - c68f5bfe-fe7e-4c22-9db4-364eb894d9d0
 
 Cenário 1
 
 ### Info. Processo
-PK => PJ#e86fcdfb-c200-4737-8b1c-7923e25e0843
-SK => PR#9817be8b-309c-417f-8ff9-fac96655a937
-Id Pessoa Juridica => e86fcdfb-c200-4737-8b1c-7923e25e0843
-Id Processo => 9817be8b-309c-417f-8ff9-fac96655a937
-Tipo Processo => PASSAPORTE
-Data Inicio => 2022-06-01
-Data Fim => ''
-Status => PENDENTE
-Descricao => Processo para obtenção de passaporte
+- PK => PJ#e86fcdfb-c200-4737-8b1c-7923e25e0843
+- SK => PR#9817be8b-309c-417f-8ff9-fac96655a937
+- Id Pessoa Juridica => e86fcdfb-c200-4737-8b1c-7923e25e0843
+- Id Processo => 9817be8b-309c-417f-8ff9-fac96655a937
+- Tipo Processo => PASSAPORTE
+- Data Inicio => 2022-06-01
+- Data Fim => ''
+- Status => PENDENTE
+- Descricao => Processo para obtenção de passaporte
 
 ### Info. Documento
-PK => PJ#e86fcdfb-c200-4737-8b1c-7923e25e0843
-SK => PR#9817be8b-309c-417f-8ff9-fac96655a937#DOC#0b5a2cc2-ede3-466f-8aa1-f866e969bdce
-Id Pessoa Juridica => e86fcdfb-c200-4737-8b1c-7923e25e0843
-Id Processo => 9817be8b-309c-417f-8ff9-fac96655a937
-Nome Documento => 9817be8b-309c-417f-8ff9-fac96655a937_PASSAPORTE.pdf
-Formato => PDF
-Tamanho => 2MB
-Data entrega => ''
-Tags => ''
+- PK => PJ#e86fcdfb-c200-4737-8b1c-7923e25e0843
+- SK => PR#9817be8b-309c-417f-8ff9-fac96655a937#DOC#0b5a2cc2-ede3-466f-8aa1-f866e969bdce
+- Id Pessoa Juridica => e86fcdfb-c200-4737-8b1c-7923e25e0843
+- Id Processo => 9817be8b-309c-417f-8ff9-fac96655a937
+- Nome Documento => 9817be8b-309c-417f-8ff9-fac96655a937_PASSAPORTE.pdf
+- Formato => PDF
+- Tamanho => 2MB
+- Data entrega => ''
+- Tags => ''
 
 ### Info. Assinatura
-PK => 
+- PK => PJ#e86fcdfb-c200-4737-8b1c-7923e25e0843
+- SK => PR#9817be8b-309c-417f-8ff9-fac96655a937#DOC#0b5a2cc2-ede3-466f-8aa1-f866e969bdce
+- Id Pessoa Juridica => e86fcdfb-c200-4737-8b1c-7923e25e0843
+- Id Processo => 9817be8b-309c-417f-8ff9-fac96655a937
+- Id Assinatura => c68f5bfe-fe7e-4c22-9db4-364eb894d9d0
+- Data Expiracao => ''
+- Tags => ''
+
+### Info. Signatario
+- PK => PJ#e86fcdfb-c200-4737-8b1c-7923e25e0843
+- SK => PR#9817be8b-309c-417f-8ff9-fac96655a937#DOC#0b5a2cc2-ede3-466f-8aa1-f866e969bdce
+- Id Pessoa Juridica => e86fcdfb-c200-4737-8b1c-7923e25e0843
+- Data Assinatura => ''
+- Nome Signatario => Pessoa com nome qualquer
+- Status => PENDENTE
