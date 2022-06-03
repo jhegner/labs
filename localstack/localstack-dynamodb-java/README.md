@@ -318,7 +318,9 @@ Vamos usar a abordagem - Chave primária composta + uso da API de consulta do Dy
 Fonte:
 
 [AWS Developer Guide - Modeling Relational Data in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-modeling-nosql.html)
+
 [alexdebrie - dynamodb-one-to-many](https://www.alexdebrie.com/posts/dynamodb-one-to-many/)
+
 [Comparing multi and single table approaches](https://serverlessfirst.com/dynamodb-modelling-single-vs-multi-table/)
 
 
