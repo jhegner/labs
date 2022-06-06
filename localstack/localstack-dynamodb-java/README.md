@@ -555,5 +555,14 @@ Para saber mais
 
 - [Overview of AWS SDK Support for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.SDKOverview.html)
 
+# Model View no Workbench
 
+![Model view](images/table.png)
+
+![Facets](images/facets.png)
+
+Viewing data access patterns - Permite representar os padroes de acesso da tabela, 
+facilita na visulização de subconjunto de dados. APENAS VISUALIZAÇÃO - NÃO EXISTE NA TABELA
+
+- Para saber mais [Viewing data access patterns](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.Visualizer.Facets.html)
 
