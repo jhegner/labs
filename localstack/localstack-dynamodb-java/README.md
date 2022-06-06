@@ -430,7 +430,7 @@ Cenário 1
 
 ```
 λ aws dynamodb create-table \
-    --table-name TbControleProcessoPessoaJuridica \
+    --table-name TB_CONTROLE_PROCESSO_PESSOA_JURIDICA \
     --attribute-definitions \
 		AttributeName=PK,AttributeType=S \
 		AttributeName=SK,AttributeType=S \
@@ -445,9 +445,8 @@ Cenário 1
 λ aws --endpoint-url http://127.0.0.1:4566 \
 	dynamodb put-item --table-name TbControleProcessoPessoaJuridica \
     --item '{
-        "PK": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
-        "SK": {"S": "PR#9817be8b-309c-417f-8ff9-fac96655a937"} , 
-        "IdPessoaJuridica": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},  
+        "IdPessoaJuridica": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
+        "SK": {"S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937"},
 		"IdProcesso": {"S": "9817be8b-309c-417f-8ff9-fac96655a937"},  
 		"TipoProcesso": {"S": "PASSAPORTE"},   
 		"DataInicio": {"S": "2022-06-01"},   
@@ -455,17 +454,15 @@ Cenário 1
 		"Status": {"S": "PENDENTE"},   
 		"Descricao": {"S": "Processo para obtenção de passaporte"}   
       }'  \
-    --return-consumed-capacity TOTAL 
+    --return-consumed-capacity TOTAL
 ```
 ### Criação de item com as informações do documento
 ```
 λ aws dynamodb put-item \
     --table-name TbControleProcessoPessoaJuridica \
     --item '{
-        "PK": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
-        "SK": {"S": "PR#9817be8b-309c-417f-8ff9-fac96655a937#DOC#0b5a2cc2-ede3-466f-8aa1-f866e969bdce"} ,
         "IdPessoaJuridica": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
-		"IdProcesso": {"S": "9817be8b-309c-417f-8ff9-fac96655a937"},
+        "SK": {"S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937#DOCUMENTO#0b5a2cc2-ede3-466f-8aa1-f866e969bdce"},
 		"IdDocumento": {"S": "0b5a2cc2-ede3-466f-8aa1-f866e969bdce"},
 		"NomeDocumento": {"S": "9817be8b-309c-417f-8ff9-fac96655a937_PASSAPORTE.pdf"},
 		"Formato": {"S": "PDF"},
@@ -480,10 +477,8 @@ Cenário 1
 λ aws dynamodb put-item \
     --table-name TbControleProcessoPessoaJuridica \
     --item '{
-        "PK": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
-        "SK": {"S": "PR#9817be8b-309c-417f-8ff9-fac96655a937#ASS#c68f5bfe-fe7e-4c22-9db4-364eb894d9d0"} ,
         "IdPessoaJuridica": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
-		"IdProcesso": {"S": "9817be8b-309c-417f-8ff9-fac96655a937"},
+        "SK": {"S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937#ASSINATURA#c68f5bfe-fe7e-4c22-9db4-364eb894d9d0"} ,
 		"IdAssinatura": {"S": "c68f5bfe-fe7e-4c22-9db4-364eb894d9d0"},
 		"DataAssinatura": {"S": ""}
       }' \
@@ -495,11 +490,10 @@ Cenário 1
 λ aws dynamodb put-item \
     --table-name TbControleProcessoPessoaJuridica \
     --item '{
-        "PK": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
-        "SK": {"S": "PR#9817be8b-309c-417f-8ff9-fac96655a937#SIG#74a738ef-3d35-4c8e-8b92-74161a0f2c55"} ,
         "IdPessoaJuridica": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
+        "SK": {"S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937#SIGNATARIO#74a738ef-3d35-4c8e-8b92-74161a0f2c55"} ,
 		"IdPessoaFisica": {"S": "74a738ef-3d35-4c8e-8b92-74161a0f2c55"},
-		"DataAssinatura": {"S": ""},
+		"DataAssinaturaSignatario": {"S": ""},
 		"NomeSignatario": {"S": "Joao Antonio das Palmas"},
 		"Status": {"S": "PENDENTE"}
       }' \
