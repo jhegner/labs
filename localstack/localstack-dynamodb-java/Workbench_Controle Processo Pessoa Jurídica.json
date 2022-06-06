@@ -1,0 +1,277 @@
+{
+  "ModelName": "Controle Processo Pessoa Jurídica",
+  "ModelMetadata": {
+    "Author": "Jidlafe Hegner",
+    "DateCreated": "Jun 06, 2022, 12:19 AM",
+    "DateLastModified": "Jun 06, 2022, 01:04 AM",
+    "Description": "Lab do DynamoDB - Controle de Processo de Pessoa Jurídica",
+    "AWSService": "Amazon DynamoDB",
+    "Version": "3.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "TB_CONTROLE_PROCESSO_PESSOA_JURIDICA",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "IdPessoaJuridica",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "SK",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "IdProcesso",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "TipoProcesso",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "DataInicio",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "DataFim",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Status",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Descricao",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "IdDocumento",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "NomeDocumento",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Formato",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Tamanho",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "DataEntrega",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "IdAssinatura",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "DataAssinatura",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "IdPessoaFisica",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "DataAssinaturaSignatario",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "NomeSignatario",
+          "AttributeType": "S"
+        }
+      ],
+      "TableFacets": [
+        {
+          "FacetName": "PROCESSO",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "IdPessoaJuridica",
+            "SortKeyAlias": "SK"
+          },
+          "TableData": [
+            {
+              "IdPessoaJuridica": {
+                "S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"
+              },
+              "SK": {
+                "S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937"
+              },
+              "IdProcesso": {
+                "S": "9817be8b-309c-417f-8ff9-fac96655a937"
+              },
+              "TipoProcesso": {
+                "S": "PASSAPORTE"
+              },
+              "DataInicio": {
+                "S": "2022-06-01"
+              },
+              "DataFim": {
+                "S": "EMPTY"
+              },
+              "Status": {
+                "S": "PENDENTE"
+              },
+              "Descricao": {
+                "S": "Processo para obtenção de passaporte"
+              }
+            }
+          ],
+          "NonKeyAttributes": [
+            "IdProcesso",
+            "TipoProcesso",
+            "DataInicio",
+            "DataFim",
+            "Status",
+            "Descricao"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "DOCUMENTO",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "IdPessoaJuridica",
+            "SortKeyAlias": "SK"
+          },
+          "TableData": [
+            {
+              "IdPessoaJuridica": {
+                "S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"
+              },
+              "SK": {
+                "S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937#DOCUMENTO#0b5a2cc2-ede3-466f-8aa1-f866e969bdce"
+              },
+              "IdDocumento": {
+                "S": "0b5a2cc2-ede3-466f-8aa1-f866e969bdce"
+              },
+              "NomeDocumento": {
+                "S": "9817be8b-309c-417f-8ff9-fac96655a937_PASSAPORTE.pdf"
+              },
+              "Formato": {
+                "S": "PDF"
+              },
+              "Tamanho": {
+                "S": "2000"
+              }
+            }
+          ],
+          "NonKeyAttributes": [
+            "IdDocumento",
+            "NomeDocumento",
+            "Formato",
+            "DataEntrega",
+            "Tamanho"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "ASSINATURA",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "IdPessoaJuridica",
+            "SortKeyAlias": "SK"
+          },
+          "TableData": [
+            {
+              "IdPessoaJuridica": {
+                "S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"
+              },
+              "SK": {
+                "S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937#ASSINATURA#c68f5bfe-fe7e-4c22-9db4-364eb894d9d0"
+              },
+              "IdAssinatura": {
+                "S": "c68f5bfe-fe7e-4c22-9db4-364eb894d9d0"
+              },
+              "DataAssinatura": {
+                "S": "EMPTY"
+              }
+            }
+          ],
+          "NonKeyAttributes": [
+            "IdAssinatura",
+            "DataAssinatura"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "SIGNATARIO",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "IdPessoaJuridica",
+            "SortKeyAlias": "SK"
+          },
+          "TableData": [
+            {
+              "IdPessoaJuridica": {
+                "S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"
+              },
+              "SK": {
+                "S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937#SIGNATARIO#74a738ef-3d35-4c8e-8b92-74161a0f2c55"
+              },
+              "Status": {
+                "S": "PENDENTE"
+              },
+              "IdPessoaFisica": {
+                "S": "74a738ef-3d35-4c8e-8b92-74161a0f2c55"
+              },
+              "DataAssinaturaSignatario": {
+                "S": "EMPTY"
+              },
+              "NomeSignatario": {
+                "S": "Joao Antonio das Palmas"
+              }
+            }
+          ],
+          "NonKeyAttributes": [
+            "Status",
+            "IdPessoaFisica",
+            "DataAssinaturaSignatario",
+            "NomeSignatario"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    }
+  ]
+}
