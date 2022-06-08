@@ -258,7 +258,7 @@ Os componentes principais para utilização do DynamoDB são:
 ### Descrever informações da tabela
 
 ```
-λ aws dynamodb describe-table --table-name "TbControleProcessoPessoaJuridica"  --endpoint-url http://127.0.0.1:4566
+λ aws dynamodb describe-table --table-name "TB_CONTROLE_PROCESSO_PESSOA_JURIDICA"  --endpoint-url http://127.0.0.1:4566
 ```
 
 ### Criar uma tabela utilizando o aws cli
@@ -409,7 +409,7 @@ Cenário 1
 - Tamanho => 2000
 - Data entrega => ''
 
-### Info. Assinatura
+### Info. Assinatura Eletrônica
 - PK => e86fcdfb-c200-4737-8b1c-7923e25e0843
 - SK => PR#9817be8b-309c-417f-8ff9-fac96655a937#ASS#c68f5bfe-fe7e-4c22-9db4-364eb894d9d0
 - Id Pessoa Juridica => e86fcdfb-c200-4737-8b1c-7923e25e0843
@@ -422,7 +422,7 @@ Cenário 1
 - SK => PR#9817be8b-309c-417f-8ff9-fac96655a937#SIG#74a738ef-3d35-4c8e-8b92-74161a0f2c55
 - Id Pessoa Juridica => e86fcdfb-c200-4737-8b1c-7923e25e0843
 - Id Pessoa Fisica => 74a738ef-3d35-4c8e-8b92-74161a0f2c55
-- Data Assinatura => ''
+- Data Hora Assinatura => ''
 - Nome Signatario => Pessoa com nome qualquer
 - Status => PENDENTE
 
@@ -442,8 +442,7 @@ Cenário 1
 
 ### Criação de item com as informações do processo
 ```
-λ aws --endpoint-url http://127.0.0.1:4566 \
-	dynamodb put-item --table-name TbControleProcessoPessoaJuridica \
+λ aws dynamodb put-item --table-name TB_CONTROLE_PROCESSO_PESSOA_JURIDICA \
     --item '{
         "IdPessoaJuridica": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
         "SK": {"S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937"},
@@ -454,12 +453,12 @@ Cenário 1
 		"Status": {"S": "PENDENTE"},   
 		"Descricao": {"S": "Processo para obtenção de passaporte"}   
       }'  \
-    --return-consumed-capacity TOTAL
+    --return-consumed-capacity TOTAL --endpoint-url http://127.0.0.1:4566
 ```
 ### Criação de item com as informações do documento
 ```
 λ aws dynamodb put-item \
-    --table-name TbControleProcessoPessoaJuridica \
+    --table-name TB_CONTROLE_PROCESSO_PESSOA_JURIDICA \
     --item '{
         "IdPessoaJuridica": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
         "SK": {"S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937#DOCUMENTO#0b5a2cc2-ede3-466f-8aa1-f866e969bdce"},
@@ -475,7 +474,7 @@ Cenário 1
 ### Criação de item com as informações do assinatura
 ```
 λ aws dynamodb put-item \
-    --table-name TbControleProcessoPessoaJuridica \
+    --table-name TB_CONTROLE_PROCESSO_PESSOA_JURIDICA \
     --item '{
         "IdPessoaJuridica": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
         "SK": {"S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937#ASSINATURA#c68f5bfe-fe7e-4c22-9db4-364eb894d9d0"} ,
@@ -488,7 +487,7 @@ Cenário 1
 ### Criação de item com as informações do signatário
 ```
 λ aws dynamodb put-item \
-    --table-name TbControleProcessoPessoaJuridica \
+    --table-name TB_CONTROLE_PROCESSO_PESSOA_JURIDICA \
     --item '{
         "IdPessoaJuridica": {"S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"},
         "SK": {"S": "PROCESSO#9817be8b-309c-417f-8ff9-fac96655a937#SIGNATARIO#74a738ef-3d35-4c8e-8b92-74161a0f2c55"} ,
