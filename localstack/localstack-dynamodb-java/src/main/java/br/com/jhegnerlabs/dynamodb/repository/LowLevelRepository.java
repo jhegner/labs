@@ -3,7 +3,6 @@ package br.com.jhegnerlabs.dynamodb.repository;
 import br.com.jhegnerlabs.dynamodb.data.Processo;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.regions.Regions;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
@@ -12,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Map;
 
 @Slf4j
-public class Repository {
+public class LowLevelRepository {
 
     public static final String SERVICE_ENDPOINT = "http://localhost:4566";
 
