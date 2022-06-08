@@ -5,7 +5,7 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 
-import br.com.jhegnerlabs.dynamodb.data.Processo;
+import br.com.jhegnerlabs.dynamodb.entity.Processo;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

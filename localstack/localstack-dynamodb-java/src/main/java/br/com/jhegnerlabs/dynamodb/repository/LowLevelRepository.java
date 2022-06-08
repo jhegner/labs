@@ -1,11 +1,12 @@
 package br.com.jhegnerlabs.dynamodb.repository;
 
-import br.com.jhegnerlabs.dynamodb.data.Processo;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
+
+import br.com.jhegnerlabs.dynamodb.entity.Processo;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
