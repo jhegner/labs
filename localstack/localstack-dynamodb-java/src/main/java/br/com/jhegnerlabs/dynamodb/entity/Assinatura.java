@@ -1,6 +1,6 @@
 package br.com.jhegnerlabs.dynamodb.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +13,6 @@ public class Assinatura {
 
     private Signatario signatario;
 
-    private LocalDate dataExpiracao;
+    private LocalDateTime dataHoraAssinatura;
 
 }

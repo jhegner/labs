@@ -1,7 +1,7 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {
-    "TBCONTROLEPROCESSOPESSOAJURIDICA": {
+    "tbControleProcessoPessoaJuridica": {
       "Type": "AWS::DynamoDB::Table",
       "Properties": {
         "KeySchema": [
@@ -26,19 +26,19 @@
         ],
         "GlobalSecondaryIndexes": [],
         "BillingMode": "PROVISIONED",
-        "TableName": "TB_CONTROLE_PROCESSO_PESSOA_JURIDICA",
+        "TableName": "tb_controle_processo_pessoa_juridica",
         "ProvisionedThroughput": {
           "ReadCapacityUnits": 1,
           "WriteCapacityUnits": 1
         }
       }
     },
-    "TableTBCONTROLEPROCESSOPESSOAJURIDICAReadCapacityScalableTarget": {
+    "TabletbControleProcessoPessoaJuridicaReadCapacityScalableTarget": {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
-      "DependsOn": "TB_CONTROLE_PROCESSO_PESSOA_JURIDICA",
+      "DependsOn": "tb_controle_processo_pessoa_juridica",
       "Properties": {
         "ServiceNamespace": "dynamodb",
-        "ResourceId": "table/TB_CONTROLE_PROCESSO_PESSOA_JURIDICA",
+        "ResourceId": "table/tb_controle_processo_pessoa_juridica",
         "ScalableDimension": "dynamodb:table:ReadCapacityUnits",
         "MinCapacity": 1,
         "MaxCapacity": 10,
@@ -47,14 +47,14 @@
         }
       }
     },
-    "TableTBCONTROLEPROCESSOPESSOAJURIDICAReadCapacityScalingPolicy": {
+    "TabletbControleProcessoPessoaJuridicaReadCapacityScalingPolicy": {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
-      "DependsOn": "TableTB_CONTROLE_PROCESSO_PESSOA_JURIDICAReadCapacityScalableTarget",
+      "DependsOn": "Tabletb_controle_processo_pessoa_juridicaReadCapacityScalableTarget",
       "Properties": {
         "ServiceNamespace": "dynamodb",
-        "ResourceId": "table/TB_CONTROLE_PROCESSO_PESSOA_JURIDICA",
+        "ResourceId": "table/tb_controle_processo_pessoa_juridica",
         "ScalableDimension": "dynamodb:table:ReadCapacityUnits",
-        "PolicyName": "TB_CONTROLE_PROCESSO_PESSOA_JURIDICA-read-capacity-scaling-policy",
+        "PolicyName": "tb_controle_processo_pessoa_juridica-read-capacity-scaling-policy",
         "PolicyType": "TargetTrackingScaling",
         "TargetTrackingScalingPolicyConfiguration": {
           "PredefinedMetricSpecification": {
@@ -66,12 +66,12 @@
         }
       }
     },
-    "TableTBCONTROLEPROCESSOPESSOAJURIDICAWriteCapacityScalableTarget": {
+    "TabletbControleProcessoPessoaJuridicaWriteCapacityScalableTarget": {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
-      "DependsOn": "TB_CONTROLE_PROCESSO_PESSOA_JURIDICA",
+      "DependsOn": "tb_controle_processo_pessoa_juridica",
       "Properties": {
         "ServiceNamespace": "dynamodb",
-        "ResourceId": "table/TB_CONTROLE_PROCESSO_PESSOA_JURIDICA",
+        "ResourceId": "table/tb_controle_processo_pessoa_juridica",
         "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
         "MinCapacity": 1,
         "MaxCapacity": 10,
@@ -80,14 +80,14 @@
         }
       }
     },
-    "TableTBCONTROLEPROCESSOPESSOAJURIDICAWriteCapacityScalingPolicy": {
+    "TabletbControleProcessoPessoaJuridicaWriteCapacityScalingPolicy": {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
-      "DependsOn": "TableTB_CONTROLE_PROCESSO_PESSOA_JURIDICAWriteCapacityScalableTarget",
+      "DependsOn": "Tabletb_controle_processo_pessoa_juridicaWriteCapacityScalableTarget",
       "Properties": {
         "ServiceNamespace": "dynamodb",
-        "ResourceId": "table/TB_CONTROLE_PROCESSO_PESSOA_JURIDICA",
+        "ResourceId": "table/tb_controle_processo_pessoa_juridica",
         "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
-        "PolicyName": "TB_CONTROLE_PROCESSO_PESSOA_JURIDICA-write-capacity-scaling-policy",
+        "PolicyName": "tb_controle_processo_pessoa_juridica-write-capacity-scaling-policy",
         "PolicyType": "TargetTrackingScaling",
         "TargetTrackingScalingPolicyConfiguration": {
           "PredefinedMetricSpecification": {
