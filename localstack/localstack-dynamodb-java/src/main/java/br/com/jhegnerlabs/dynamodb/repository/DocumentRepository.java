@@ -24,7 +24,7 @@ public class DocumentRepository {
             
         var documentClient = new DynamoDB(client);
 
-        var table = documentClient.getTable("TB_CONTROLE_PROCESSO_PESSOA_JURIDICA");
+        var table = documentClient.getTable("tb_controle_processo_pessoa_juridica");
 
         var outcome = table.getItemOutcome(
             "IdPessoaJuridica", "e86fcdfb-c200-4737-8b1c-7923e25e0843",

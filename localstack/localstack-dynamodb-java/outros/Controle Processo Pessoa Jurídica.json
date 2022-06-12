@@ -3,7 +3,7 @@
   "ModelMetadata": {
     "Author": "Jidlafe Hegner",
     "DateCreated": "Jun 09, 2022, 12:32 AM",
-    "DateLastModified": "Jun 09, 2022, 12:40 AM",
+    "DateLastModified": "Jun 12, 2022, 12:53 AM",
     "Description": "Controle Processo Pessoa Jurídica",
     "AWSService": "Amazon DynamoDB",
     "Version": "3.0"
@@ -156,6 +156,234 @@
           ],
           "DataAccess": {
             "MySql": {}
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    },
+    {
+      "TableName": "tb_empresa",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "id_pessoa_juridica",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "nome",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "cnpj",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "inscricao_estadual",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "data_abertura",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "site",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "email",
+          "AttributeType": "S"
+        }
+      ],
+      "TableData": [
+        {
+          "id_pessoa_juridica": {
+            "S": "e86fcdfb-c200-4737-8b1c-7923e25e0843"
+          },
+          "nome": {
+            "S": "Antonio e Simone Ferragens Ltda"
+          },
+          "cnpj": {
+            "S": "61.624.872/0001-15"
+          },
+          "inscricao_estadual": {
+            "S": "507.755.697.269"
+          },
+          "data_abertura": {
+            "S": "11/07/2016"
+          },
+          "site": {
+            "S": "www.antonioesimoneferragensltda.com.br"
+          },
+          "email": {
+            "S": "contabil@antonioesimoneferragensltda.com.br"
+          }
+        },
+        {
+          "id_pessoa_juridica": {
+            "S": "7747a1ac-ac7e-4bed-ac85-cdef4c7fa06c"
+          },
+          "nome": {
+            "S": "Lavínia e Sara Restaurante Ltda"
+          },
+          "cnpj": {
+            "S": "06.800.005/0001-85"
+          },
+          "inscricao_estadual": {
+            "S": "950.264.835.248"
+          },
+          "data_abertura": {
+            "S": "18/01/2016"
+          },
+          "site": {
+            "S": "www.laviniaesararestauranteltda.com.br"
+          },
+          "email": {
+            "S": "financeiro@laviniaesararestauranteltda.com.br"
+          }
+        },
+        {
+          "id_pessoa_juridica": {
+            "S": "95660d99-7591-4d79-a187-2d96da4b3ec1"
+          },
+          "nome": {
+            "S": "Aline e Manuel Consultoria Financeira Ltda"
+          },
+          "cnpj": {
+            "S": "10.817.045/0001-07"
+          },
+          "inscricao_estadual": {
+            "S": "386.843.849.250"
+          },
+          "data_abertura": {
+            "S": "18/06/2017"
+          },
+          "site": {
+            "S": "www.alineemanuelconsultoriafinanceiraltda.com.br"
+          },
+          "email": {
+            "S": "faleconosco@alineemanuelconsultoriafinanceiraltda.com.br"
+          }
+        },
+        {
+          "id_pessoa_juridica": {
+            "S": "160df93c-1ff5-48dd-9c9c-861b71baae18"
+          },
+          "nome": {
+            "S": "Isaac e Manuela Advocacia ME"
+          },
+          "cnpj": {
+            "S": "02.351.973/0001-09"
+          },
+          "inscricao_estadual": {
+            "S": "010.313.206.626"
+          },
+          "data_abertura": {
+            "S": "17/05/2017"
+          },
+          "site": {
+            "S": "www.isaacemanuelaadvocaciame.com.br"
+          },
+          "email": {
+            "S": "fiscal@isaacemanuelaadvocaciame.com.br"
+          }
+        },
+        {
+          "id_pessoa_juridica": {
+            "S": "71a839e6-3946-4471-8c6d-b5260a74ae59"
+          },
+          "nome": {
+            "S": "Manuela e Jennifer Vidros Ltda"
+          },
+          "cnpj": {
+            "S": "78.924.035/0001-04"
+          },
+          "inscricao_estadual": {
+            "S": "213.052.103.486"
+          },
+          "data_abertura": {
+            "S": "24/04/2017"
+          },
+          "site": {
+            "S": "www.manuelaejennifervidrosltda.com.br"
+          },
+          "email": {
+            "S": "fiscal@manuelaejennifervidrosltda.com.br"
+          }
+        },
+        {
+          "id_pessoa_juridica": {
+            "S": "59e36f03-3ecc-4caa-8551-e6a6d2b22683"
+          },
+          "nome": {
+            "S": "Samuel e Simone Adega Ltda"
+          },
+          "cnpj": {
+            "S": "74.033.119/0001-05"
+          },
+          "inscricao_estadual": {
+            "S": "498.642.107.749"
+          },
+          "data_abertura": {
+            "S": "07/12/2017"
+          },
+          "site": {
+            "S": "www.samuelesimoneadegaltda.com.br"
+          },
+          "email": {
+            "S": "representantes@samuelesimoneadegaltda.com.br"
+          }
+        },
+        {
+          "id_pessoa_juridica": {
+            "S": "22b4942a-954d-43b4-bdae-19c39c61d84a"
+          },
+          "nome": {
+            "S": "Nelson e Noah Telas ME"
+          },
+          "cnpj": {
+            "S": "83.971.184/0001-64"
+          },
+          "inscricao_estadual": {
+            "S": "360.823.326.146"
+          },
+          "data_abertura": {
+            "S": "12/11/2017"
+          },
+          "site": {
+            "S": "www.nelsonenoahtelasme.com.br"
+          },
+          "email": {
+            "S": "compras@nelsonenoahtelasme.com.br"
           }
         }
       ],
