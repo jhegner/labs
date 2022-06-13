@@ -1,17 +1,34 @@
 package br.com.jhegnerlabs.dynamodb.entity;
 
-import br.com.jhegnerlabs.dynamodb.enums.StatusAssinatura;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import lombok.*;
 
+@Data
+@Builder(setterPrefix = "with")
 @NoArgsConstructor
-@Getter
-@Setter
-public class Signatario extends Representante{
+@AllArgsConstructor
+@DynamoDBTable(tableName = "tb_representante_empresa")
+public class Signatario {
 
-    private Assinatura assinatura;
+    @DynamoDBHashKey(attributeName = "id_pessoa_juridica")
+    private String idPessoaJuridica;
 
-    private StatusAssinatura statusAssinatura;
-    
+    @DynamoDBRangeKey(attributeName = "sort_key")
+    private String sortKey;
+
+    @DynamoDBAttribute(attributeName = "id_documento")
+    private String idDocumento;
+
+    @DynamoDBAttribute(attributeName = "status")
+    private String statusAssinatura;
+
+    @DynamoDBAttribute(attributeName = "id_pessoa_fisica")
+    private String idPessoaFisica;
+
+    @DynamoDBAttribute(attributeName = "nome_signatario")
+    private String nomeSignatario;
+
 }

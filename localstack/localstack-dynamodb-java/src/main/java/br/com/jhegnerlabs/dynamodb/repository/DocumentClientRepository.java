@@ -9,7 +9,7 @@ import br.com.jhegnerlabs.dynamodb.entity.Processo;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class DocumentRepository {
+public class DocumentClientRepository {
 
     public static final String SERVICE_ENDPOINT = "http://localhost:4566";
 

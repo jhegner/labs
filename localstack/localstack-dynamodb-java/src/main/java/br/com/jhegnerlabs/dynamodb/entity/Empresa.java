@@ -37,9 +37,6 @@ public class Empresa {
     @DynamoDBAttribute(attributeName = "email")
     private String email;
 
-//    private Set<Processo> processos;
-
-
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);

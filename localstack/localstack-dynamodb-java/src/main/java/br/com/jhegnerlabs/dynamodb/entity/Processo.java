@@ -1,34 +1,58 @@
 package br.com.jhegnerlabs.dynamodb.entity;
 
-import java.time.LocalDate;
-
-import br.com.jhegnerlabs.dynamodb.enums.StatusProcessoEnum;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
+@Builder(setterPrefix = "with")
 @NoArgsConstructor
+@AllArgsConstructor
+@DynamoDBTable(tableName = "tb_controle_processo_pessoa_juridica")
 public class Processo {
 
-    private String pK;
-
-    private String sK;
-    
+    @JsonProperty("id_pessoa_juridica")
+    @DynamoDBHashKey(attributeName = "id_pessoa_juridica")
     private String idPessoaJuridica;
 
+    @JsonProperty("sort_key")
+    @DynamoDBRangeKey(attributeName = "sort_key")
+    private String sortKey;
+
+    @JsonProperty("id_processo")
+    @DynamoDBAttribute(attributeName = "id_processo")
     private String idProcesso;
 
+    @JsonProperty("tipo_processo")
+    @DynamoDBAttribute(attributeName = "tipo_processo")
     private String tipoProcesso;
 
-    private LocalDate dataInicio;
+    @JsonProperty("data_inicio")
+    @DynamoDBAttribute(attributeName = "data_inicio")
+    private String dataInicio;
 
-    private LocalDate dataFim;
+    @JsonProperty("data_expiracao")
+    @DynamoDBAttribute(attributeName = "data_expiracao")
+    private String dataExpiracao;
 
-    private StatusProcessoEnum status;
+    @JsonProperty("data_fim")
+    @DynamoDBAttribute(attributeName = "data_fim")
+    private String dataFim;
 
+    @JsonProperty("status")
+    @DynamoDBAttribute(attributeName = "status")
+    private String status;
+
+    @JsonProperty("descricao")
+    @DynamoDBAttribute(attributeName = "descricao")
     private String descricao;
 
-    private LocalDate dataLimiteFinalizacao;
-
+    @DynamoDBIgnore
+    private List<Documento> documentos;
 
 }

@@ -1,28 +1,40 @@
 package br.com.jhegnerlabs.dynamodb.entity;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
-import br.com.jhegnerlabs.dynamodb.enums.Formato;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder(setterPrefix = "with")
 @NoArgsConstructor
+@AllArgsConstructor
+@DynamoDBTable(tableName = "tb_controle_processo_pessoa_juridica")
 public class Documento {
 
+    @DynamoDBHashKey(attributeName = "id_pessoa_juridica")
+    private String idPessoaJuridica;
+
+    @DynamoDBRangeKey(attributeName = "sort_key")
+    private String sortKey;
+
+    @DynamoDBRangeKey(attributeName = "id_documento")
     private String idDocumento;
 
-    private List<Assinatura> assinaturas;
+    @DynamoDBAttribute(attributeName = "formato")
+    private String formato;
 
-    private Processo processo;
+    @DynamoDBAttribute(attributeName = "tamanho")
+    private String tamanho;
 
-    private String nome;
+    @DynamoDBAttribute(attributeName = "data_hora_entrega")
+    private String dataHoraEntrega;
 
-    private Formato formato;
+    @DynamoDBIgnore
+    private Empresa empresa;
 
-    private int tamanho;
+    @DynamoDBIgnore
+    private OrdemAssinatura ordemAssinatura;
 
-    private LocalDateTime dataHoraEntrega;
-    
 }
