@@ -18,7 +18,7 @@ public class Representante {
     @DynamoDBHashKey(attributeName = "id_pessoa_juridica")
     private String idPessoaJuridica;
 
-    @DynamoDBRangeKey(attributeName = "d_pessoa_fisic")
+    @DynamoDBRangeKey(attributeName = "id_pessoa_fisica")
     private String idPessoaFisica;
 
     @DynamoDBAttribute(attributeName = "nome")

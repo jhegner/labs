@@ -1,12 +1,14 @@
 package br.com.jhegnerlabs.dynamodb.entity;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -52,6 +54,7 @@ public class Processo {
     @DynamoDBAttribute(attributeName = "descricao")
     private String descricao;
 
+    @JsonIgnore
     @DynamoDBIgnore
     private List<Documento> documentos;
 

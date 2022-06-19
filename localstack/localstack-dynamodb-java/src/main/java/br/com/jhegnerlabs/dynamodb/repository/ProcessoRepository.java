@@ -40,9 +40,9 @@ public class ProcessoRepository {
         ItemCollection<QueryOutcome> items = table.query(
                 "id_pessoa_juridica", idCliente, rangeKeyCondition);
 
-        if(items.getAccumulatedItemCount() <= 0) {
-//            throw new IllegalStateException("Nao encontrado processo para o filtro informado");
-        }
+//        if(items.getAccumulatedItemCount() <= 0) {
+////            throw new IllegalStateException("Nao encontrado processo para o filtro informado");
+//        }
 
         return new MapperEntity().mapItemToEntity(items.pages());
     }
