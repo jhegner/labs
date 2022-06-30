@@ -8,17 +8,15 @@ import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.Page;
 import com.amazonaws.services.dynamodbv2.document.QueryOutcome;
 import com.amazonaws.services.dynamodbv2.document.internal.PageIterable;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public final class MapperEntity {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final static ObjectMapper objectMapper = new ObjectMapper();
 
     private enum Entitys {
 
@@ -63,22 +61,16 @@ public final class MapperEntity {
                 final var sk = item.getString("sort_key");
 
                 if (sk.contains(Entitys.PROCESSO.identifier)) {
-                    processo = this.objectMapper.readValue(item.toJSON(), Processo.class);
+                    processo = objectMapper.readValue(item.toJSON(), Processo.class);
                 }
                 else if (sk.contains(Entitys.DOCUMENTO.identifier)){
-
-                    var documento = this.objectMapper.readValue(item.toJSON(), Documento.class);
-                    documentos.add(documento);
+                    documentos.add(objectMapper.readValue(item.toJSON(), Documento.class));
                 }
                 else if (sk.contains(Entitys.ORDEMASSINATURA.identifier)){
-
-                     ordemAssinatura = this.objectMapper.readValue(item.toJSON(), OrdemAssinatura.class);
-
+                     ordemAssinatura = objectMapper.readValue(item.toJSON(), OrdemAssinatura.class);
                 }
                 else if (sk.contains(Entitys.SIGNATARIO.identifier)){
-
-                    var signatario = this.objectMapper.readValue(item.toJSON(), Signatario.class);
-                    signatarios.add(signatario);
+                    signatarios.add(objectMapper.readValue(item.toJSON(), Signatario.class));
                 }
             } catch (IOException ex) {
                 ex.printStackTrace();

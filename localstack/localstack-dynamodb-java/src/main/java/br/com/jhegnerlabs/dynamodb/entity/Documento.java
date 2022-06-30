@@ -43,9 +43,9 @@ public class Documento {
     @DynamoDBAttribute(attributeName = "data_hora_entrega")
     private String dataHoraEntrega;
 
-    @JsonIgnore
-    @DynamoDBIgnore
-    private Empresa empresa;
+//    @JsonIgnore
+//    @DynamoDBIgnore
+//    private Empresa empresa;
 
     @JsonIgnore
     @DynamoDBIgnore

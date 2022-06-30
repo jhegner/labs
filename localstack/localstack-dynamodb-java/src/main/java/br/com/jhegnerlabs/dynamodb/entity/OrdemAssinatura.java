@@ -41,8 +41,8 @@ public class OrdemAssinatura {
     @DynamoDBAttribute(attributeName = "data_hora_assinatura")
     private String dataHoraAssinatura;
 
-    @JsonIgnore
-    @DynamoDBIgnore
+//    @JsonIgnore
+//    @DynamoDBIgnore
     private Documento documento;
 
     @JsonIgnore
