@@ -5,32 +5,21 @@ import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.amazonaws.services.dynamodbv2.model.ComparisonOperator;
-import com.amazonaws.services.dynamodbv2.model.Condition;
-
-import java.util.List;
 
 public class OrdemAssinaturaRepository {
 
     public static final String SERVICE_ENDPOINT = "http://localhost:4566";
 
+    private final DynamoDBMapper dbMapper ;
+
+    {
+        dbMapper = getDynamoDBMapper();
+    }
+
 
     public OrdemAssinatura findOrdemAssinatura(final String idPessoaJuridica, final String idProcesso, String idOrdemAssinatura) {
 
-        var endpointConfig = new AwsClientBuilder.EndpointConfiguration(
-                SERVICE_ENDPOINT,
-                Regions.US_EAST_1.getName());
-
-        var client = AmazonDynamoDBClientBuilder.standard()
-                .withEndpointConfiguration(endpointConfig).build();
-
-        DynamoDBMapper dbMapper = new DynamoDBMapper(client);
-
-        final var pk = OrdemAssinatura.builder()
-                .withIdPessoaJuridica(idPessoaJuridica)
-                .build();
+        final var pk = OrdemAssinatura.builder().withIdPessoaJuridica(idPessoaJuridica).build();
 
         final var rangeKey = "PROCESSO#" + idProcesso + "#" + "ORDEMASSINATURA" + "#" + idOrdemAssinatura;
 
@@ -55,5 +44,26 @@ public class OrdemAssinaturaRepository {
 //        return ordens.stream().findAny()
 //                .orElseThrow(() -> new IllegalStateException("Nao encontrado item para o filtro informado"));
 
+    }
+
+    public OrdemAssinatura updateOrdemAssinatura(OrdemAssinatura ordemAssinatura, final String idProcesso) {
+
+        dbMapper.save(ordemAssinatura);
+
+        final var rangeKey = "PROCESSO#" + idProcesso + "#" + "ORDEMASSINATURA" + "#" + ordemAssinatura.getIdAssinatura();
+
+        return dbMapper.load(OrdemAssinatura.class, ordemAssinatura.getIdPessoaJuridica(), rangeKey);
+
+    }
+
+    private DynamoDBMapper getDynamoDBMapper() {
+        var endpointConfig = new AwsClientBuilder.EndpointConfiguration(
+                SERVICE_ENDPOINT,
+                Regions.US_EAST_1.getName());
+
+        var client = AmazonDynamoDBClientBuilder.standard()
+                .withEndpointConfiguration(endpointConfig).build();
+
+        return new DynamoDBMapper(client);
     }
 }

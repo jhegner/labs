@@ -4,6 +4,9 @@ import br.com.jhegnerlabs.dynamodb.repository.HigherLevelRepository;
 import br.com.jhegnerlabs.dynamodb.repository.OrdemAssinaturaRepository;
 import br.com.jhegnerlabs.dynamodb.repository.ProcessoRepository;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class App {
 
     public static void main(String[] args) {
@@ -21,11 +24,21 @@ public class App {
 //                "9817be8b-309c-417f-8ff9-fac96655a937");
 //        System.out.println(objs);
 
-        var ordem = new OrdemAssinaturaRepository().findOrdemAssinatura(
+
+        OrdemAssinaturaRepository ordemAssinaturaRepository = new OrdemAssinaturaRepository();
+
+        var ordem = ordemAssinaturaRepository.findOrdemAssinatura(
                 "e86fcdfb-c200-4737-8b1c-7923e25e0843",
                 "9817be8b-309c-417f-8ff9-fac96655a937",
                 "c68f5bfe-fe7e-4c22-9db4-364eb894d9d0");
         System.out.println(ordem);
+
+        ordem.setDataHoraAssinatura(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+
+        var ordemAtualizada =
+                ordemAssinaturaRepository.updateOrdemAssinatura(ordem,"9817be8b-309c-417f-8ff9-fac96655a937");
+
+        System.out.println(ordemAtualizada);
 
 //        new LowLevelRepository().consultaProcesso(
 //                "e86fcdfb-c200-4737-8b1c-7923e25e0843",
