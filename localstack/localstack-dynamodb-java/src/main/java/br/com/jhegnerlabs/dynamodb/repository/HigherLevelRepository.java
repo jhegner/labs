@@ -59,13 +59,9 @@ public class HigherLevelRepository {
                 .withIdPessoaJuridica(idEmpresa)
                 .build();
 
-//        RangeKeyCondition rangeKeyCondition = new RangeKeyCondition("sort_key");
-//        rangeKeyCondition.beginsWith("PROCESSO#" + idProcesso);
-
         Condition rangeKeyCondition = new Condition()
                 .withComparisonOperator(ComparisonOperator.BEGINS_WITH)
                 .withAttributeValueList(new AttributeValue("PROCESSO#" + idProcesso));
-//        rangeKeyCondition.
 
         final DynamoDBQueryExpression<Processo> queryExpression
                 = new DynamoDBQueryExpression<Processo>()

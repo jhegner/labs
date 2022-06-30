@@ -28,21 +28,11 @@ public class ProcessoRepository {
 
         var table = documentClient.getTable("tb_controle_processo_pessoa_juridica");
 
-//        var outcome = table.getItemOutcome(
-//                "id_pessoa_juridica", idCliente,
-//                "sort_key", "PROCESSO#" + idProcesso
-//        );
-//        log.info("GetItemOutcome {}", outcome);
-
         RangeKeyCondition rangeKeyCondition = new RangeKeyCondition("sort_key");
         rangeKeyCondition.beginsWith("PROCESSO#" + idProcesso);
 
         ItemCollection<QueryOutcome> items = table.query(
                 "id_pessoa_juridica", idCliente, rangeKeyCondition);
-
-//        if(items.getAccumulatedItemCount() <= 0) {
-////            throw new IllegalStateException("Nao encontrado processo para o filtro informado");
-//        }
 
         return new MapperEntity().mapItemToEntity(items.pages());
     }

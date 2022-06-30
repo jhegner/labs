@@ -1,9 +1,6 @@
 package br.com.jhegnerlabs.dynamodb.entity;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIgnore;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -22,7 +19,7 @@ import java.util.List;
 public class OrdemAssinatura {
 
     @JsonProperty("id_pessoa_juridica")
-    @DynamoDBAttribute(attributeName = "id_pessoa_juridica")
+    @DynamoDBHashKey(attributeName = "id_pessoa_juridica")
     private String idPessoaJuridica;
 
     @JsonProperty("sort_key")
