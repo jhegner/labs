@@ -57,7 +57,6 @@ public class EnhancedClientRepository {
                 .build();
 
         // Query com funcao begins_with do dynamodb
-
         var queryRequest = QueryRequest.builder()
                 .tableName("tb_controle_processo_pessoa_juridica")
                 .keyConditionExpression("#pk = :pk and begins_with(#sk, :sk)")
@@ -70,6 +69,7 @@ public class EnhancedClientRepository {
                 ))
                 .build();
 
+        // classe wrapper com todas as entidades
         final var cpeBuilder = ControleProcessoEmpresa.builder();
 
         var queryResponse = ddbClient.query(queryRequest);
