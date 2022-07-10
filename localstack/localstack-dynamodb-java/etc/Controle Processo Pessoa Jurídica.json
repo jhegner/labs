@@ -3,7 +3,7 @@
   "ModelMetadata": {
     "Author": "Jidlafe Hegner",
     "DateCreated": "Jun 09, 2022, 12:32 AM",
-    "DateLastModified": "Jun 12, 2022, 03:33 PM",
+    "DateLastModified": "Jun 12, 2022, 10:25 PM",
     "Description": "Controle Processo Pessoa Jurídica",
     "AWSService": "Amazon DynamoDB",
     "Version": "3.0"
