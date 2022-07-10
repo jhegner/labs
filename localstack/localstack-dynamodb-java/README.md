@@ -494,6 +494,12 @@ Para saber mais:
 
 ## AWS SDK for DynamoDB
 
+Para conhecer um pouco mais do AWS SDK 2, adicionei o repositorio `EnhancedClientRepository`
+
+O buidler `CodigoChaveOrdenacao` fornece a capacidade de gerar chaves de ordenacao apenas com os valores dos campos sendo
+o tipo das entidades adicionadas pelo builder. Exemplo: consumidor fornece para o idProcesso - 123 | idDocumento - 456 o builder
+gera `PROCESSO#123#DOCUMENTO#456`
+
 No arquivo `pom.xml` adicionamos a tag de gerenciamento de dependência `<dependencyManagement>` com o grupo id `software.amazon.awssdk` na versão 2.17.203 e a dependência `dynamodb`. 
 
 ```
@@ -514,6 +520,19 @@ No arquivo `pom.xml` adicionamos a tag de gerenciamento de dependência `<depend
 <dependency>
     <groupId>software.amazon.awssdk</groupId>
     <artifactId>dynamodb</artifactId>
+</dependency>
+```
+
+```
+<dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>dynamodb</artifactId>
+    <version>2.17.228</version>
+</dependency>
+<dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>dynamodb-enhanced</artifactId>
+    <version>2.17.228</version>
 </dependency>
 ```
 
