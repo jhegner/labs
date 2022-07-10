@@ -56,7 +56,7 @@ public class CodigoChaveOrdenacao {
         }
     }
 
-    // monta a sorted key ou chave de ordenacao
+    // monta o valor da sorted key ou chave de ordenacao
     public String toString() {
         return this.idProcesso + this.processoMetadata + this.idDocumento;
     }
