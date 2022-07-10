@@ -38,11 +38,11 @@ public class OrdemAssinatura {
     @DynamoDBAttribute(attributeName = "data_hora_assinatura")
     private String dataHoraAssinatura;
 
-    @JsonIgnore
-    @DynamoDBIgnore
-    private Documento documento;
+//    @JsonIgnore
+//    @DynamoDBIgnore
+//    private Documento documento;
 
-    @JsonIgnore
-    @DynamoDBIgnore
-    private List<Signatario> signatarios;
+//    @JsonIgnore
+//    @DynamoDBIgnore
+//    private List<Signatario> signatarios;
 }

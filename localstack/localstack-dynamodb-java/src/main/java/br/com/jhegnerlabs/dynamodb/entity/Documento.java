@@ -7,12 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.*;
 
 @Data
 @Builder(setterPrefix = "with")
 @NoArgsConstructor
 @AllArgsConstructor
 @DynamoDBTable(tableName = "tb_controle_processo_pessoa_juridica")
+@DynamoDbBean // aws sdk v2
 public class Documento {
 
     @JsonProperty("id_pessoa_juridica")
@@ -47,8 +49,49 @@ public class Documento {
 //    @DynamoDBIgnore
 //    private Empresa empresa;
 
-    @JsonIgnore
-    @DynamoDBIgnore
-    private OrdemAssinatura ordemAssinatura;
+//    @JsonIgnore
+//    @DynamoDBIgnore
+//    private OrdemAssinatura ordemAssinatura;
 
+    @DynamoDbPartitionKey
+    @DynamoDbAttribute("id_pessoa_juridica")
+    public String getIdPessoaJuridica() {
+        return idPessoaJuridica;
+    }
+
+    @DynamoDbSortKey
+    @DynamoDbAttribute("sort_key")
+    public String getSortKey() {
+        return sortKey;
+    }
+
+    @DynamoDbAttribute("id_documento")
+    public String getIdDocumento() {
+        return idDocumento;
+    }
+
+    @DynamoDbAttribute("nome_documento")
+    public String getNomeDocumento() {
+        return nomeDocumento;
+    }
+
+    @DynamoDbAttribute("formato")
+    public String getFormato() {
+        return formato;
+    }
+
+    @DynamoDbAttribute("tamanho")
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    @DynamoDbAttribute("data_hora_entrega")
+    public String getDataHoraEntrega() {
+        return dataHoraEntrega;
+    }
+
+//    @DynamoDbIgnore
+//    public OrdemAssinatura getOrdemAssinatura() {
+//        return ordemAssinatura;
+//    }
 }
