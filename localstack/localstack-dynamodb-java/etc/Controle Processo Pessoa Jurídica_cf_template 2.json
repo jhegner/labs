@@ -1,0 +1,379 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "tbControleProcessoPessoaJuridica": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "KeySchema": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "sort_key",
+            "KeyType": "RANGE"
+          }
+        ],
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "sort_key",
+            "AttributeType": "S"
+          }
+        ],
+        "LocalSecondaryIndex": [
+          {
+            "IndexName" : "statusprocesso_lsi_1",
+            "KeySchema" : [
+              {
+                "AttributeName": "status_processo",
+                "KeyType": "RANGE"
+              }                       
+             ],
+            "Projection" : {
+              "NonKeyAttributes" : [ "nome", "rg", "idade", "sexo", "email" ],
+              "ProjectionType": "INCLUDE"
+            }            
+          }
+        ],        
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName" : "processo_gsi_1",
+            "KeySchema" : [
+              {
+                "AttributeName": "tipo_processo",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "id_processo",
+                "KeyType": "RANGE"
+              }                                     
+             ],
+            "Projection" : {
+              "NonKeyAttributes" : [ "id_processo", "tipo_processo", "status", "data_inicio", "data_expiracao" ],
+              "ProjectionType": "INCLUDE"
+            }, 
+            "ProvisionedThroughput" : {
+              "ReadCapacityUnits" : 1,
+              "WriteCapacityUnits" : 1
+            }
+          }
+        ],
+        "BillingMode": "PROVISIONED",
+        "TableName": "tb_controle_processo_pessoa_juridica",
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        }
+      }
+    },
+    "TabletbControleProcessoPessoaJuridicaReadCapacityScalableTarget": {
+      "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
+      "DependsOn": "tb_controle_processo_pessoa_juridica",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_controle_processo_pessoa_juridica",
+        "ScalableDimension": "dynamodb:table:ReadCapacityUnits",
+        "MinCapacity": 1,
+        "MaxCapacity": 10,
+        "RoleARN": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/dynamodb.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+        }
+      }
+    },
+    "TabletbControleProcessoPessoaJuridicaReadCapacityScalingPolicy": {
+      "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+      "DependsOn": "Tabletb_controle_processo_pessoa_juridicaReadCapacityScalableTarget",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_controle_processo_pessoa_juridica",
+        "ScalableDimension": "dynamodb:table:ReadCapacityUnits",
+        "PolicyName": "tb_controle_processo_pessoa_juridica-read-capacity-scaling-policy",
+        "PolicyType": "TargetTrackingScaling",
+        "TargetTrackingScalingPolicyConfiguration": {
+          "PredefinedMetricSpecification": {
+            "PredefinedMetricType": "DynamoDBReadCapacityUtilization"
+          },
+          "ScaleOutCooldown": 60,
+          "ScaleInCooldown": 60,
+          "TargetValue": 70
+        }
+      }
+    },
+    "TabletbControleProcessoPessoaJuridicaWriteCapacityScalableTarget": {
+      "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
+      "DependsOn": "tb_controle_processo_pessoa_juridica",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_controle_processo_pessoa_juridica",
+        "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
+        "MinCapacity": 1,
+        "MaxCapacity": 10,
+        "RoleARN": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/dynamodb.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+        }
+      }
+    },
+    "TabletbControleProcessoPessoaJuridicaWriteCapacityScalingPolicy": {
+      "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+      "DependsOn": "Tabletb_controle_processo_pessoa_juridicaWriteCapacityScalableTarget",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_controle_processo_pessoa_juridica",
+        "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
+        "PolicyName": "tb_controle_processo_pessoa_juridica-write-capacity-scaling-policy",
+        "PolicyType": "TargetTrackingScaling",
+        "TargetTrackingScalingPolicyConfiguration": {
+          "PredefinedMetricSpecification": {
+            "PredefinedMetricType": "DynamoDBWriteCapacityUtilization"
+          },
+          "ScaleOutCooldown": 60,
+          "ScaleInCooldown": 60,
+          "TargetValue": 70
+        }
+      }
+    },
+    "tbEmpresa": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "KeySchema": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "KeyType": "HASH"
+          }
+        ],
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "AttributeType": "S"
+          }
+        ],
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName" : "cnpj_gsi_1",
+            "KeySchema" : [
+              {
+                "AttributeName": "cnpj",
+                "KeyType": "HASH"
+              }                       
+             ],
+            "Projection" : {
+              "ProjectionType": "ALL"
+            },
+            "ProvisionedThroughput" : {
+              "ReadCapacityUnits" : 1,
+              "WriteCapacityUnits" : 1
+            }
+          }
+        ],
+        "BillingMode": "PROVISIONED",
+        "TableName": "tb_empresa",
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        }
+      },
+      "DependsOn": "tb_controle_processo_pessoa_juridica"
+    },
+    "TabletbEmpresaReadCapacityScalableTarget": {
+      "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
+      "DependsOn": "tb_empresa",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_empresa",
+        "ScalableDimension": "dynamodb:table:ReadCapacityUnits",
+        "MinCapacity": 1,
+        "MaxCapacity": 10,
+        "RoleARN": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/dynamodb.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+        }
+      }
+    },
+    "TabletbEmpresaReadCapacityScalingPolicy": {
+      "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+      "DependsOn": "Tabletb_empresaReadCapacityScalableTarget",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_empresa",
+        "ScalableDimension": "dynamodb:table:ReadCapacityUnits",
+        "PolicyName": "tb_empresa-read-capacity-scaling-policy",
+        "PolicyType": "TargetTrackingScaling",
+        "TargetTrackingScalingPolicyConfiguration": {
+          "PredefinedMetricSpecification": {
+            "PredefinedMetricType": "DynamoDBReadCapacityUtilization"
+          },
+          "ScaleOutCooldown": 60,
+          "ScaleInCooldown": 60,
+          "TargetValue": 70
+        }
+      }
+    },
+    "TabletbEmpresaWriteCapacityScalableTarget": {
+      "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
+      "DependsOn": "tb_empresa",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_empresa",
+        "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
+        "MinCapacity": 1,
+        "MaxCapacity": 10,
+        "RoleARN": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/dynamodb.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+        }
+      }
+    },
+    "TabletbEmpresaWriteCapacityScalingPolicy": {
+      "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+      "DependsOn": "Tabletb_empresaWriteCapacityScalableTarget",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_empresa",
+        "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
+        "PolicyName": "tb_empresa-write-capacity-scaling-policy",
+        "PolicyType": "TargetTrackingScaling",
+        "TargetTrackingScalingPolicyConfiguration": {
+          "PredefinedMetricSpecification": {
+            "PredefinedMetricType": "DynamoDBWriteCapacityUtilization"
+          },
+          "ScaleOutCooldown": 60,
+          "ScaleInCooldown": 60,
+          "TargetValue": 70
+        }
+      }
+    },
+    "tbRepresentanteEmpresa": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "KeySchema": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "id_pessoa_fisica",
+            "KeyType": "RANGE"
+          }
+        ],
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "id_pessoa_fisica",
+            "AttributeType": "S"
+          }
+        ],
+        "LocalSecondaryIndex": [
+          {
+            "IndexName" : "cpf_lsi_1",
+            "KeySchema" : [
+              {
+                "AttributeName": "cpf",
+                "KeyType": "RANGE"
+              }                       
+             ],
+            "Projection" : {
+              "NonKeyAttributes" : [ "nome", "rg", "idade", "sexo", "email" ],
+              "ProjectionType": "INCLUDE"
+            }            
+          }
+        ],
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName" : "rg_gsi_1",
+            "KeySchema" : [
+              {
+                "AttributeName": "rg",
+                "KeyType": "HASH"
+              }                       
+             ],
+            "Projection" : {
+              "ProjectionType": "ALL"
+            },
+            "ProvisionedThroughput" : {
+              "ReadCapacityUnits" : 1,
+              "WriteCapacityUnits" : 1
+            }
+          }
+        ],
+        "BillingMode": "PROVISIONED",
+        "TableName": "tb_representante_empresa",
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        }
+      },
+      "DependsOn": "tb_empresa"
+    },
+    "TabletbRepresentanteEmpresaReadCapacityScalableTarget": {
+      "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
+      "DependsOn": "tb_representante_empresa",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_representante_empresa",
+        "ScalableDimension": "dynamodb:table:ReadCapacityUnits",
+        "MinCapacity": 1,
+        "MaxCapacity": 10,
+        "RoleARN": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/dynamodb.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+        }
+      }
+    },
+    "TabletbRepresentanteEmpresaReadCapacityScalingPolicy": {
+      "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+      "DependsOn": "Tabletb_representante_empresaReadCapacityScalableTarget",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_representante_empresa",
+        "ScalableDimension": "dynamodb:table:ReadCapacityUnits",
+        "PolicyName": "tb_representante_empresa-read-capacity-scaling-policy",
+        "PolicyType": "TargetTrackingScaling",
+        "TargetTrackingScalingPolicyConfiguration": {
+          "PredefinedMetricSpecification": {
+            "PredefinedMetricType": "DynamoDBReadCapacityUtilization"
+          },
+          "ScaleOutCooldown": 60,
+          "ScaleInCooldown": 60,
+          "TargetValue": 70
+        }
+      }
+    },
+    "TabletbRepresentanteEmpresaWriteCapacityScalableTarget": {
+      "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
+      "DependsOn": "tb_representante_empresa",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_representante_empresa",
+        "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
+        "MinCapacity": 1,
+        "MaxCapacity": 10,
+        "RoleARN": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/dynamodb.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+        }
+      }
+    },
+    "TabletbRepresentanteEmpresaWriteCapacityScalingPolicy": {
+      "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+      "DependsOn": "Tabletb_representante_empresaWriteCapacityScalableTarget",
+      "Properties": {
+        "ServiceNamespace": "dynamodb",
+        "ResourceId": "table/tb_representante_empresa",
+        "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
+        "PolicyName": "tb_representante_empresa-write-capacity-scaling-policy",
+        "PolicyType": "TargetTrackingScaling",
+        "TargetTrackingScalingPolicyConfiguration": {
+          "PredefinedMetricSpecification": {
+            "PredefinedMetricType": "DynamoDBWriteCapacityUtilization"
+          },
+          "ScaleOutCooldown": 60,
+          "ScaleInCooldown": 60,
+          "TargetValue": 70
+        }
+      }
+    }
+  }
+}
