@@ -22,7 +22,19 @@
           {
             "AttributeName": "sort_key",
             "AttributeType": "S"
-          }
+          },
+          {
+            "AttributeName": "tipo_processo",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "id_processo",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "status_processo",
+            "AttributeType": "S"
+          }                                
         ],
         "LocalSecondaryIndex": [
           {
@@ -53,7 +65,7 @@
               }                                     
              ],
             "Projection" : {
-              "NonKeyAttributes" : [ "id_processo", "tipo_processo", "status", "data_inicio", "data_expiracao" ],
+              "NonKeyAttributes" : [ "status", "data_inicio", "data_expiracao" ],
               "ProjectionType": "INCLUDE"
             }, 
             "ProvisionedThroughput" : {
@@ -149,7 +161,11 @@
           {
             "AttributeName": "id_pessoa_juridica",
             "AttributeType": "S"
-          }
+          },
+          {
+            "AttributeName": "cnpj",
+            "AttributeType": "S"
+          }          
         ],
         "GlobalSecondaryIndexes": [
           {
@@ -265,7 +281,15 @@
           {
             "AttributeName": "id_pessoa_fisica",
             "AttributeType": "S"
-          }
+          },
+          {
+            "AttributeName": "cpf",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "rg",
+            "AttributeType": "S"
+          }                    
         ],
         "LocalSecondaryIndex": [
           {
