@@ -1,0 +1,65 @@
+[
+  {
+    "data_abertura": "2016-11-05",
+    "site": "www.antonioesimoneferragensltda.com.br",
+    "id_pessoa_juridica": "e86fcdfb-c200-4737-8b1c-7923e25e0843",
+    "inscricao_estadual": "507.755.697.269",
+    "nome": "Antonio e Simone Ferragens Ltda",
+    "cnpj": "61.624.872/0001-15",
+    "email": "contabil@antonioesimoneferragensltda.com.br"
+  },
+  {
+    "data_abertura": "1995-10-23",
+    "site": "www.manuelaejennifervidrosltda.com.br",
+    "id_pessoa_juridica": "71a839e6-3946-4471-8c6d-b5260a74ae59",
+    "inscricao_estadual": "213.052.103.486",
+    "nome": "Manuela e Jennifer Vidros Ltda",
+    "cnpj": "78.924.035/0001-04",
+    "email": "fiscal@manuelaejennifervidrosltda.com.br"
+  },
+  {
+    "data_abertura": "2000-01-23",
+    "site": "www.isaacemanuelaadvocaciame.com.br",
+    "id_pessoa_juridica": "160df93c-1ff5-48dd-9c9c-861b71baae18",
+    "inscricao_estadual": "010.313.206.626",
+    "nome": "Isaac e Manuela Advocacia ME",
+    "cnpj": "02.351.973/0001-09",
+    "email": "fiscal@isaacemanuelaadvocaciame.com.br"
+  },
+  {
+    "data_abertura": "2017-11-23",
+    "site": "www.alineemanuelconsultoriafinanceiraltda.com.br",
+    "id_pessoa_juridica": "95660d99-7591-4d79-a187-2d96da4b3ec1",
+    "inscricao_estadual": "386.843.849.250",
+    "nome": "Aline e Manuel Consultoria Financeira Ltda",
+    "cnpj": "10.817.045/0001-07",
+    "email": "faleconosco@alineemanuelconsultoriafinanceiraltda.com.br"
+  },
+  {
+    "data_abertura": "2010-03-21",
+    "site": "www.laviniaesararestauranteltda.com.br",
+    "id_pessoa_juridica": "7747a1ac-ac7e-4bed-ac85-cdef4c7fa06c",
+    "inscricao_estadual": "950.264.835.248",
+    "nome": "Lavínia e Sara Restaurante Ltda",
+    "cnpj": "06.800.005/0001-85",
+    "email": "financeiro@laviniaesararestauranteltda.com.br"
+  },
+  {
+    "data_abertura": "2017-11-12",
+    "site": "www.nelsonenoahtelasme.com.br",
+    "id_pessoa_juridica": "22b4942a-954d-43b4-bdae-19c39c61d84a",
+    "inscricao_estadual": "360.823.326.146",
+    "nome": "Nelson e Noah Telas ME",
+    "cnpj": "83.971.184/0001-64",
+    "email": "compras@nelsonenoahtelasme.com.br"
+  },
+  {
+    "data_abertura": "2019-04-21",
+    "site": "www.samuelesimoneadegaltda.com.br",
+    "id_pessoa_juridica": "59e36f03-3ecc-4caa-8551-e6a6d2b22683",
+    "inscricao_estadual": "498.642.107.749",
+    "nome": "Samuel e Simone Adega Ltda",
+    "cnpj": "74.033.119/0001-05",
+    "email": "representantes@samuelesimoneadegaltda.com.br"
+  }
+]
