@@ -46,7 +46,7 @@
               }                       
              ],
             "Projection" : {
-              "NonKeyAttributes" : [ "nome", "rg", "idade", "sexo", "email" ],
+              "NonKeyAttributes" : [ "tipo_processo", "id_processo", "data_inicio", "data_expiracao" ],
               "ProjectionType": "INCLUDE"
             }            
           }
@@ -84,7 +84,7 @@
     },
     "TabletbControleProcessoPessoaJuridicaReadCapacityScalableTarget": {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
-      "DependsOn": "tb_controle_processo_pessoa_juridica",
+      "DependsOn": ["tb_controle_processo_pessoa_juridica"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_controle_processo_pessoa_juridica",
@@ -98,7 +98,7 @@
     },
     "TabletbControleProcessoPessoaJuridicaReadCapacityScalingPolicy": {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
-      "DependsOn": "Tabletb_controle_processo_pessoa_juridicaReadCapacityScalableTarget",
+      "DependsOn": ["Tabletb_controle_processo_pessoa_juridicaReadCapacityScalableTarget"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_controle_processo_pessoa_juridica",
@@ -117,7 +117,7 @@
     },
     "TabletbControleProcessoPessoaJuridicaWriteCapacityScalableTarget": {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
-      "DependsOn": "tb_controle_processo_pessoa_juridica",
+      "DependsOn": ["tb_controle_processo_pessoa_juridica"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_controle_processo_pessoa_juridica",
@@ -131,7 +131,7 @@
     },
     "TabletbControleProcessoPessoaJuridicaWriteCapacityScalingPolicy": {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
-      "DependsOn": "Tabletb_controle_processo_pessoa_juridicaWriteCapacityScalableTarget",
+      "DependsOn": ["Tabletb_controle_processo_pessoa_juridicaWriteCapacityScalableTarget"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_controle_processo_pessoa_juridica",
@@ -192,11 +192,11 @@
           "WriteCapacityUnits": 1
         }
       },
-      "DependsOn": "tb_controle_processo_pessoa_juridica"
+      "DependsOn": ["tb_controle_processo_pessoa_juridica"]
     },
     "TabletbEmpresaReadCapacityScalableTarget": {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
-      "DependsOn": "tb_empresa",
+      "DependsOn": ["tb_empresa"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_empresa",
@@ -210,7 +210,7 @@
     },
     "TabletbEmpresaReadCapacityScalingPolicy": {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
-      "DependsOn": "Tabletb_empresaReadCapacityScalableTarget",
+      "DependsOn": ["Tabletb_empresaReadCapacityScalableTarget"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_empresa",
@@ -229,7 +229,7 @@
     },
     "TabletbEmpresaWriteCapacityScalableTarget": {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
-      "DependsOn": "tb_empresa",
+      "DependsOn": ["tb_empresa"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_empresa",
@@ -243,7 +243,7 @@
     },
     "TabletbEmpresaWriteCapacityScalingPolicy": {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
-      "DependsOn": "Tabletb_empresaWriteCapacityScalableTarget",
+      "DependsOn": ["Tabletb_empresaWriteCapacityScalableTarget"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_empresa",
@@ -331,11 +331,11 @@
           "WriteCapacityUnits": 1
         }
       },
-      "DependsOn": "tb_empresa"
+      "DependsOn": ["tb_empresa"]
     },
     "TabletbRepresentanteEmpresaReadCapacityScalableTarget": {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
-      "DependsOn": "tb_representante_empresa",
+      "DependsOn": ["tb_representante_empresa"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_representante_empresa",
@@ -349,7 +349,7 @@
     },
     "TabletbRepresentanteEmpresaReadCapacityScalingPolicy": {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
-      "DependsOn": "Tabletb_representante_empresaReadCapacityScalableTarget",
+      "DependsOn": ["Tabletb_representante_empresaReadCapacityScalableTarget"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_representante_empresa",
@@ -368,7 +368,7 @@
     },
     "TabletbRepresentanteEmpresaWriteCapacityScalableTarget": {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
-      "DependsOn": "tb_representante_empresa",
+      "DependsOn": ["tb_representante_empresa"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_representante_empresa",
@@ -382,7 +382,7 @@
     },
     "TabletbRepresentanteEmpresaWriteCapacityScalingPolicy": {
       "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
-      "DependsOn": "Tabletb_representante_empresaWriteCapacityScalableTarget",
+      "DependsOn": ["Tabletb_representante_empresaWriteCapacityScalableTarget"],
       "Properties": {
         "ServiceNamespace": "dynamodb",
         "ResourceId": "table/tb_representante_empresa",
