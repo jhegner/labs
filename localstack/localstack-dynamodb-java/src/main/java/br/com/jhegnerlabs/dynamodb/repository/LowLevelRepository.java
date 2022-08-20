@@ -32,10 +32,11 @@ public class LowLevelRepository {
                     .withEndpointConfiguration(endpointConfig).build();
 
         var request = new GetItemRequest()
-                .withTableName("TB_CONTROLE_PROCESSO_PESSOA_JURIDICA")
+                .withTableName("tb_controle_processo_pessoa_juridica")
                 .withKey(Map.of(
                         "IdPessoaJuridica", new AttributeValue().withS(idCliente),
                         "SK", new AttributeValue().withS("PROCESSO#" + idProcesso)));
+//                .with;;
 
         try {
 

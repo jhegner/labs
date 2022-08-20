@@ -7,7 +7,7 @@ https://www.python.org/downloads/windows/
 
 ## Para confirmar a instalação execute 
 
-`λ py --version ou python --version`
+`py --version ou python --version`
 
 # Instalar a ferramenta AWS CLI ☁️
 
@@ -19,7 +19,7 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 ## Para confirmar a instalação execute 
 
-`λ aws --version`
+`aws --version`
 
 ## Configuração de profile para acesso aos serviços de uma conta AWS (real ou localstack)
 
@@ -27,13 +27,13 @@ https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/ind
 
 Para configurar um novo profile (para uso do localstack), execute:
 
-`λ aws configure --profile localstack`
+`aws configure --profile localstack`
 
 ### Informe valores aleatórios para o KEY ID e Access Key. Para o region informe (sa-east-1). O output default é o formato json
 
 Exemplo:
 
-`λ aws configure --profile localstack`
+`aws configure --profile localstack`
 
 Saída:
 
@@ -46,11 +46,11 @@ Default output format [None]: json
 
 ### Para listar os profiles configurados, execute
 
-`λ aws configure list-profiles`
+`aws configure list-profiles`
 
 Exemplo:
 
-`λ aws configure list-profiles`
+`aws configure list-profiles`
 
 Saída:
 
@@ -69,7 +69,7 @@ https://docs.docker.com/desktop/windows/install/
 
 ## Para confirmar a instalação execute 
 
-`λ docker info`
+`docker info`
 
 ## Docker compose
 
@@ -113,11 +113,11 @@ https://aws.amazon.com/pt/sqs/
 
 ### Listar as filas criadas 
 
-`λ aws sqs list-queues --endpoint-url="http://127.0.0.1:4566"`
+`aws sqs list-queues --endpoint-url="http://127.0.0.1:4566"`
 
 ### Criar uma nova fila
 
-`λ aws sqs create-queue --queue-name="labs-localstack-dynamodb-java-queue"  --endpoint-url="http://127.0.0.1:4566"`
+`aws sqs create-queue --queue-name="labs-localstack-dynamodb-java-queue"  --endpoint-url="http://127.0.0.1:4566"`
 
 Saída:
 
@@ -129,7 +129,7 @@ Saída:
 ### Enviar uma mensagem
 
 `
-λ aws sqs send-message --queue-url "http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue" --message-body "Hello SQS World" --delay-seconds 10 --endpoint-url http://127.0.0.1:4566
+aws sqs send-message --queue-url "http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue" --message-body "Hello SQS World" --delay-seconds 10 --endpoint-url http://127.0.0.1:4566
 `
 
 Saída:
@@ -144,7 +144,7 @@ Saída:
 ### Receber mensagem da fila (máximo 10)
 
 `
-λ aws sqs receive-message --queue-url "http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue" --endpoint-url http://127.0.0.1:4566 --attribute-names All --message-attribute-names All --max-number-of-messages 10
+aws sqs receive-message --queue-url "http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue" --endpoint-url http://127.0.0.1:4566 --attribute-names All --message-attribute-names All --max-number-of-messages 10
 `
 
 Saida:
@@ -171,7 +171,7 @@ Saida:
 ### Obtem todos os atributos da fila
 
 `
-λ aws sqs get-queue-attributes --queue-url "http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue" --endpoint-url http://127.0.0.1:4566 --attribute-names All
+aws sqs get-queue-attributes --queue-url "http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue" --endpoint-url http://127.0.0.1:4566 --attribute-names All
 `
 
 Saida:
@@ -197,7 +197,7 @@ Saida:
 ### Obtem um atributo específico da fila | ApproximateNumberOfMessages
 
 `
-λ aws sqs get-queue-attributes --queue-url "http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue" --endpoint-url http://127.0.0.1:4566 --attribute-names ApproximateNumberOfMessages
+aws sqs get-queue-attributes --queue-url "http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue" --endpoint-url http://127.0.0.1:4566 --attribute-names ApproximateNumberOfMessages
 `
 
 Saida:
@@ -213,7 +213,7 @@ Saida:
 ### Apagar uma mensagem (Deve ser utilizado o ReceiptHandle e não o MessageId)
 
 `
-λ aws sqs delete-message --queue-url http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue --endpoint-url http://127.0.0.1:4566 --receipt-handle YzAyYTVhZWEtMTRlYi00NjJjLThjNDgtYTc4YWUxNmJlNDBhIGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6bGFicy1sb2NhbHN0YWNrLWR5bmFtb2RiLWphdmEtcXVldWUgMjFiNDQ5YmUtMTllMi00NWIwLTkxODYtNDRmOWY2N2YxZDRjIDE2NTQwNTQwODIuNTg5OTY4Mg==
+aws sqs delete-message --queue-url http://127.0.0.1:4566/000000000000/labs-localstack-dynamodb-java-queue --endpoint-url http://127.0.0.1:4566 --receipt-handle YzAyYTVhZWEtMTRlYi00NjJjLThjNDgtYTc4YWUxNmJlNDBhIGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6bGFicy1sb2NhbHN0YWNrLWR5bmFtb2RiLWphdmEtcXVldWUgMjFiNDQ5YmUtMTllMi00NWIwLTkxODYtNDRmOWY2N2YxZDRjIDE2NTQwNTQwODIuNTg5OTY4Mg==
 `
 
 ## DynamoDB
@@ -251,20 +251,20 @@ Os componentes principais para utilização do DynamoDB são:
 ### Listar tabelas utilizando o aws cli
 
 ```
-λ aws dynamodb list-tables --endpoint-url http://127.0.0.1:4566
+aws dynamodb list-tables --endpoint-url http://127.0.0.1:4566
 ```
 
 
 ### Descrever informações da tabela
 
 ```
-λ aws dynamodb describe-table --table-name "TB_CONTROLE_PROCESSO_PESSOA_JURIDICA"  --endpoint-url http://127.0.0.1:4566
+aws dynamodb describe-table --table-name "TB_CONTROLE_PROCESSO_PESSOA_JURIDICA"  --endpoint-url http://127.0.0.1:4566
 ```
 
 ### Criar uma tabela utilizando o aws cli
 
 ```
-λ aws dynamodb create-table \
+aws dynamodb create-table \
     --table-name MusicCollection \
     --attribute-definitions AttributeName=Artist,AttributeType=S AttributeName=SongTitle,AttributeType=S \
     --key-schema AttributeName=Artist,KeyType=HASH AttributeName=SongTitle,KeyType=RANGE \
@@ -275,7 +275,7 @@ Os componentes principais para utilização do DynamoDB são:
 ### Apagar uma tabela utilizando o aws cli
 
 ```
-λ aws dynamodb delete-table \
+aws dynamodb delete-table \
     --table-name MusicCollection \
     --endpoint-url http://127.0.0.1:4566
 ```
@@ -283,7 +283,7 @@ Os componentes principais para utilização do DynamoDB são:
 ### Adicionar novo item com o aws cli
 
 ```
-λ aws dynamodb put-item \
+aws dynamodb put-item \
     --table-name MusicCollection \
     --item '{
         "Artist": {"S": "No One You Know"},
@@ -494,6 +494,12 @@ Para saber mais:
 
 ## AWS SDK for DynamoDB
 
+Para conhecer um pouco mais do AWS SDK 2, adicionei o repositorio `EnhancedClientRepository`
+
+O buidler `CodigoChaveOrdenacao` fornece a capacidade de gerar chaves de ordenacao apenas com os valores dos campos sendo
+o tipo das entidades adicionadas pelo builder. Exemplo: consumidor fornece para o idProcesso - 123 | idDocumento - 456 o builder
+gera `PROCESSO#123#DOCUMENTO#456`
+
 No arquivo `pom.xml` adicionamos a tag de gerenciamento de dependência `<dependencyManagement>` com o grupo id `software.amazon.awssdk` na versão 2.17.203 e a dependência `dynamodb`. 
 
 ```
@@ -514,6 +520,19 @@ No arquivo `pom.xml` adicionamos a tag de gerenciamento de dependência `<depend
 <dependency>
     <groupId>software.amazon.awssdk</groupId>
     <artifactId>dynamodb</artifactId>
+</dependency>
+```
+
+```
+<dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>dynamodb</artifactId>
+    <version>2.17.228</version>
+</dependency>
+<dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>dynamodb-enhanced</artifactId>
+    <version>2.17.228</version>
 </dependency>
 ```
 

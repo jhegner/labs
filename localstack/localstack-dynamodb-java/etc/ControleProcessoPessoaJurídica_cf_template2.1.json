@@ -1,0 +1,211 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "tbControleProcessoPessoaJuridica": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "KeySchema": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "sort_key",
+            "KeyType": "RANGE"
+          }
+        ],
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "sort_key",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "tipo_processo",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "id_processo",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "status_processo",
+            "AttributeType": "S"
+          }                                
+        ],
+        "LocalSecondaryIndex": [
+          {
+            "IndexName" : "statusprocesso_lsi_1",
+            "KeySchema" : [
+              {
+                "AttributeName": "id_pessoa_juridica",
+                "KeyType": "HASH"
+              },              
+              {
+                "AttributeName": "status_processo",
+                "KeyType": "RANGE"
+              }                       
+             ],
+            "Projection" : {
+              "NonKeyAttributes" : [ "nome", "rg", "idade", "sexo", "email" ],
+              "ProjectionType": "INCLUDE"
+            }            
+          }
+        ],        
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName" : "processo_gsi_1",
+            "KeySchema" : [
+              {
+                "AttributeName": "tipo_processo",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "id_processo",
+                "KeyType": "RANGE"
+              }                                     
+             ],
+            "Projection" : {
+              "NonKeyAttributes" : [ "status", "data_inicio", "data_expiracao" ],
+              "ProjectionType": "INCLUDE"
+            }, 
+            "ProvisionedThroughput" : {
+              "ReadCapacityUnits" : 1,
+              "WriteCapacityUnits" : 1
+            }
+          }
+        ],
+        "BillingMode": "PROVISIONED",
+        "TableName": "tb_controle_processo_pessoa_juridica",
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        }
+      }
+    },
+    "tbEmpresa": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "KeySchema": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "KeyType": "HASH"
+          }
+        ],
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "cnpj",
+            "AttributeType": "S"
+          }          
+        ],
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName" : "cnpj_gsi_1",
+            "KeySchema" : [
+              {
+                "AttributeName": "cnpj",
+                "KeyType": "HASH"
+              }                       
+             ],
+            "Projection" : {
+              "ProjectionType": "ALL"
+            },
+            "ProvisionedThroughput" : {
+              "ReadCapacityUnits" : 1,
+              "WriteCapacityUnits" : 1
+            }
+          }
+        ],
+        "BillingMode": "PROVISIONED",
+        "TableName": "tb_empresa",
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        }
+      }
+    },
+    "tbRepresentanteEmpresa": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "KeySchema": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "id_pessoa_fisica",
+            "KeyType": "RANGE"
+          }
+        ],
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id_pessoa_juridica",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "id_pessoa_fisica",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "cpf",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "rg",
+            "AttributeType": "S"
+          }                    
+        ],
+        "LocalSecondaryIndex": [
+          {
+            "IndexName" : "cpf_lsi_1",
+            "KeySchema" : [
+              {
+                "AttributeName": "id_pessoa_juridica",
+                "KeyType": "HASH"
+              },              
+              {
+                "AttributeName": "cpf",
+                "KeyType": "RANGE"
+              }                       
+             ],
+            "Projection" : {
+              "NonKeyAttributes" : [ "nome", "rg", "idade", "sexo", "email" ],
+              "ProjectionType": "INCLUDE"
+            }            
+          }
+        ],
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName" : "rg_gsi_1",
+            "KeySchema" : [
+              {
+                "AttributeName": "rg",
+                "KeyType": "HASH"
+              }                       
+             ],
+            "Projection" : {
+              "ProjectionType": "ALL"
+            },
+            "ProvisionedThroughput" : {
+              "ReadCapacityUnits" : 1,
+              "WriteCapacityUnits" : 1
+            }
+          }
+        ],
+        "BillingMode": "PROVISIONED",
+        "TableName": "tb_representante_empresa",
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        }
+      }
+    }
+  }
+}
