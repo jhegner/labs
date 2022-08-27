@@ -6,17 +6,18 @@ import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import static com.amazonaws.regions.Regions.US_EAST_1;
 
 @Configuration
-@EnableDynamoDBRepositories(basePackageClasses = EmpresaRepository.class)
+@EnableDynamoDBRepositories(basePackages = {"br.com.jhegnerlabs.dynamodb.repository"})
 public class DynamoDBConfig {
 
-    //    @Value("${dynamodb.endpoint}")
-    private final String awsDynamoDbEndpoint = "https://dynamodb.us-east-1.amazonaws.com";
+    @Value("${dynamodb.endpoint}")
+    private String awsDynamoDbEndpoint = "";
 
     @Bean
     public EndpointConfiguration endpointConfiguration() {
@@ -28,14 +29,4 @@ public class DynamoDBConfig {
         return AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(ec)
                 .withCredentials(new ProfileCredentialsProvider("default")).build();
     }
-
-//    @Bean
-//    public DynamoDBMapperConfig beanDynamoDBMapperConfig() {
-//        return DynamoDBMapperConfig.DEFAULT;
-//    }
-//
-//    @Bean
-//    public DynamoDBMapper beanDynamoDBMapper(AmazonDynamoDB amazonDynamoDB, DynamoDBMapperConfig config) {
-//        return new DynamoDBMapper(amazonDynamoDB, config);
-//    }
 }

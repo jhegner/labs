@@ -2,16 +2,14 @@ package br.com.jhegnerlabs.dynamodb.entity;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-@Data
 @Builder(setterPrefix = "with")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,6 +23,7 @@ public class Empresa {
     private String nome;
 
     @DynamoDBAttribute(attributeName = "cnpj")
+    @DynamoDBIndexHashKey(attributeName = "cnpj", globalSecondaryIndexName = "cnpj-index")
     private String cnpj;
 
     @DynamoDBAttribute(attributeName = "inscricao_estadual")
