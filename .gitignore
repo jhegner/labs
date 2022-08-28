@@ -206,3 +206,6 @@ gradle-app.setting
 
 **/build/**
 **/.idea/**
+**/bin/**
+**/target/**
+**/.gradle/**
