@@ -27,7 +27,7 @@ public class Representante {
     @DynamoDBAttribute(attributeName = "idade")
     private Integer idade;
 
-    @DynamoDBAttribute(attributeName = "cof")
+    @DynamoDBAttribute(attributeName = "cpf")
     private String cpf;
 
     @DynamoDBAttribute(attributeName = "rg")
