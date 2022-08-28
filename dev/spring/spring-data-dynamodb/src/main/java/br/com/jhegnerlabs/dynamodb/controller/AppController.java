@@ -1,12 +1,15 @@
 package br.com.jhegnerlabs.dynamodb.controller;
 
+import br.com.jhegnerlabs.dynamodb.controller.request.RepresentanteRequest;
 import br.com.jhegnerlabs.dynamodb.entity.Empresa;
 import br.com.jhegnerlabs.dynamodb.entity.Representante;
 import br.com.jhegnerlabs.dynamodb.entity.id.RepresentanteId;
+import br.com.jhegnerlabs.dynamodb.mapper.RepresentanteMapper;
 import br.com.jhegnerlabs.dynamodb.repository.EmpresaRepository;
 import br.com.jhegnerlabs.dynamodb.repository.RepresentanteRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,15 +64,24 @@ public class AppController {
 
         log.info("Consultando representante - empresa:{}, representante:{}", idEmpresa, idRepresentante);
 
-        var result = representanteRepository.findByIdPessoaJuridicaAndIdPessoaFisica(idEmpresa, idRepresentante);
-
-        var result2 = representanteRepository.findById(RepresentanteId.builder()
+        var result = representanteRepository.findById(RepresentanteId.builder()
                 .withIdPessoaJuridica(idEmpresa).withIdPessoaFisica(idRepresentante).build());
 
         return ResponseEntity.of(result);
 
-//        return  null;
 
     }
 
+    @PostMapping("/empresas/{id_empresa}/representantes")
+    public ResponseEntity<Void> postRepresentante(
+            @PathVariable("id_empresa") String idEmpresa,
+            @RequestBody RepresentanteRequest request) {
+
+        var entity = RepresentanteMapper.INSTANCE.entityFromRequest(request, idEmpresa);
+
+        this.representanteRepository.save(entity);
+
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+
+    }
 }

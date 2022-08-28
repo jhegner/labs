@@ -2,32 +2,25 @@ package br.com.jhegnerlabs.dynamodb.entity;
 
 import br.com.jhegnerlabs.dynamodb.entity.id.RepresentanteId;
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.data.annotation.Id;
 
+import static java.util.Objects.isNull;
+
 @Data
-@Builder(setterPrefix = "with")
 @AllArgsConstructor
 @DynamoDBTable(tableName = "tb_representante_empresa")
-//@IdClass(RepresentanteId.class)
 public class Representante {
 
     @Id
+    @Getter(AccessLevel.PRIVATE)
+    @Setter(AccessLevel.PRIVATE)
     private RepresentanteId id;
 
-//    @DynamoDBHashKey(attributeName = "id_pessoa_juridica")
-//    private String idPessoaJuridica;
-
-//    @DynamoDBRangeKey(attributeName = "id_pessoa_fisica")
-//    private String idPessoaFisica;
-
-
     public Representante() {
-        if(null == this.id) {
+        if (isNull(this.id)) {
             this.id = new RepresentanteId();
         }
     }

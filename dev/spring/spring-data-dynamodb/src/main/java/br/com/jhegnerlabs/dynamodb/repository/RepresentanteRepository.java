@@ -8,6 +8,4 @@ import java.util.Optional;
 
 public interface RepresentanteRepository extends CrudRepository<Representante, RepresentanteId> {
 
-    Optional<Representante> findByIdPessoaJuridicaAndIdPessoaFisica(String idPessoaJuridica, String idPessoaFisica);
-
 }
