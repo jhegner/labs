@@ -8,7 +8,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Objects;
 
 import static java.util.Objects.isNull;
 
@@ -33,22 +39,35 @@ public class AppBoot implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        logger.info("Hello From Feign");
+        try {
 
-        var response = client.postDesejo(Desejo.builder()
-                .nome("Novo Amigo").build());
+            var path = Paths.get(Objects.requireNonNull(getClass().getResource("/lunaejupter.png")).toURI());
 
+            var bytesFile = Files.readAllBytes(path);
 
-        if (isNull(response.getHeaders().getLocation())
-                || isNull(response.getHeaders().getLocation().getPath())) {
-            throw new IllegalStateException("Desejo de novo amigo nao realizado :(");
+            client.postUpload(bytesFile);
+
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
         }
 
-        var idAmigo = getIdFromLocation(response.getHeaders().getLocation());
 
-        var responseEntity = client.getDesejo(idAmigo);
-
-        System.out.println(responseEntity.getBody());
+//        logger.info("Hello From Feign");
+//
+//        var response = client.postDesejo(Desejo.builder()
+//                .nome("Novo Amigo").build());
+//
+//
+//        if (isNull(response.getHeaders().getLocation())
+//                || isNull(response.getHeaders().getLocation().getPath())) {
+//            throw new IllegalStateException("Desejo de novo amigo nao realizado :(");
+//        }
+//
+//        var idAmigo = getIdFromLocation(response.getHeaders().getLocation());
+//
+//        var responseEntity = client.getDesejo(idAmigo);
+//
+//        System.out.println(responseEntity.getBody());
 
 //        System.out.println(idAmigo);
 //        System.out.println(response.getHeaders());

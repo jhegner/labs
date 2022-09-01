@@ -1,11 +1,9 @@
 package br.com.jhegnerlabs.openfeign;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(
     name = "appFeignClient",
@@ -18,5 +16,8 @@ public interface AppFeignClient {
 
     @GetMapping (path = "/labs-response-location/{id_desejo}")
     ResponseEntity<Desejo> getDesejo(@PathVariable("id_desejo") String id);
+
+    @PostMapping(path = "/labs-post-upload", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    ResponseEntity<Void> postUpload(@RequestBody byte[] fileBytes);
 
 }
