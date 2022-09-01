@@ -3,6 +3,8 @@ package br.com.jhegnerlabs.dynamodb.entity;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -15,6 +17,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @DynamoDBTable(tableName = "tb_empresa")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Empresa {
 
     @JsonProperty("id_pessoa_juridica")

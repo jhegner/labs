@@ -4,6 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -12,6 +13,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @DynamoDBTable(tableName = "tb_representante_empresa")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Signatario {
 
     @JsonProperty("id_pessoa_juridica")

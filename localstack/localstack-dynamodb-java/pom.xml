@@ -17,6 +17,7 @@
         <org.mapstruct.version>1.5.1.Final</org.mapstruct.version>
         <jackson.version>2.13.3</jackson.version>
         <dynamodb.version>2.17.228</dynamodb.version>
+        <gson.version>2.9.1</gson.version>
     </properties>
 
     <dependencyManagement>
@@ -58,11 +59,12 @@
             <artifactId>logstash-logback-encoder</artifactId>
             <version>6.6</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.google.code.gson</groupId>-->
-<!--            <artifactId>gson</artifactId>-->
-<!--            <version>2.8.9</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -76,6 +78,11 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson.version}</version>
         </dependency>
         <dependency>

@@ -2,6 +2,8 @@ package br.com.jhegnerlabs.dynamodb.entity;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +17,8 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.*;
 @AllArgsConstructor
 @DynamoDBTable(tableName = "tb_controle_processo_pessoa_juridica")
 @DynamoDbBean // aws sdk v2
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Documento {
 
     @JsonProperty("id_pessoa_juridica")
