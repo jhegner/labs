@@ -4,6 +4,7 @@
     "type": "module",
     "dependencies": {
         "apollo-server": "^3.10.0",
-        "graphql": "^16.5.0"
+        "graphql": "^16.5.0",
+        "hello-world-server": "file:"
     }
 }
