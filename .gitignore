@@ -209,3 +209,8 @@ gradle-app.setting
 **/bin/**
 **/target/**
 **/.gradle/**
+
+
+## outros
+
+kubernetes-labs/**

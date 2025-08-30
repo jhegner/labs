@@ -1,0 +1,204 @@
+Item;Category;Price (R$);Profit (R$)
+Classic Cheeseburger;Burgers;25.00;12.50
+Double Cheeseburger;Burgers;32.00;15.00
+Bacon Cheeseburger;Burgers;28.00;13.00
+BBQ Burger;Burgers;29.00;13.50
+Lanchonete Special Burger;Burgers;35.00;16.00
+Veggie Burger;Burgers;26.00;12.00
+Chicken Burger;Burgers;27.00;12.50
+Crispy Chicken Burger;Burgers;28.00;13.00
+Smash Burger;Burgers;24.00;11.50
+Spicy Jalapeno Burger;Burgers;30.00;14.00
+Mushroom Swiss Burger;Burgers;31.00;14.50
+Egg & Bacon Burger;Burgers;29.50;13.50
+Pineapple Teriyaki Burger;Burgers;30.00;14.00
+Goat Cheese Burger;Burgers;34.00;15.50
+Blue Cheese Burger;Burgers;33.00;15.00
+Turkey Burger;Burgers;27.00;12.00
+Pulled Pork Burger;Burgers;32.00;15.00
+Onion Ring Burger;Burgers;30.50;14.00
+Guacamole Burger;Burgers;31.50;14.50
+Ranch Chicken Burger;Burgers;29.00;13.00
+Filet Mignon Burger;Burgers;45.00;20.00
+Picanha Burger;Burgers;48.00;22.00
+Hawaiian Burger;Burgers;28.00;13.00
+Quadruple Cheeseburger;Burgers;40.00;18.00
+Bacon Egg Cheeseburger;Burgers;31.00;14.00
+Spicy Crispy Chicken Sandwich;Burgers;29.00;13.50
+Double Bacon Burger;Burgers;34.00;16.00
+Pastrami Burger;Burgers;38.00;17.00
+Italian Sausage Burger;Burgers;30.00;14.00
+Mini-Burgers (3-pack);Burgers;35.00;16.00
+Classic Hot Dog;Hot Dogs;15.00;7.50
+Chili Dog;Hot Dogs;18.00;8.00
+Bacon Wrapped Hot Dog;Hot Dogs;19.00;8.50
+Gourmet Hot Dog (various toppings);Hot Dogs;22.00;10.00
+Double Hot Dog;Hot Dogs;20.00;9.00
+Brazilian Hot Dog (with corn, peas, potato sticks);Hot Dogs;21.00;9.50
+Jalapeno Hot Dog;Hot Dogs;20.00;9.00
+Chicago Hot Dog;Hot Dogs;23.00;10.50
+New York Hot Dog;Hot Dogs;18.00;8.00
+Pretzel Bun Hot Dog;Hot Dogs;24.00;11.00
+Corn Dog;Hot Dogs;16.00;7.50
+Mini Corn Dogs;Hot Dogs;18.00;8.00
+Sauerkraut Hot Dog;Hot Dogs;21.00;9.50
+Cheese Sauce Hot Dog;Hot Dogs;20.50;9.50
+Philly Cheesesteak Hot Dog;Hot Dogs;26.00;12.00
+Grilled Cheese Sandwich;Sandwiches & Wraps;18.00;9.00
+Ham and Cheese Sandwich;Sandwiches & Wraps;20.00;9.50
+Turkey Club Sandwich;Sandwiches & Wraps;26.00;12.00
+Tuna Melt Sandwich;Sandwiches & Wraps;24.00;11.00
+BLT (Bacon, Lettuce, Tomato);Sandwiches & Wraps;22.00;10.00
+Philly Cheesesteak;Sandwiches & Wraps;30.00;14.00
+Roast Beef Sandwich;Sandwiches & Wraps;28.00;13.00
+Chicken Salad Sandwich;Sandwiches & Wraps;23.00;10.50
+Egg Salad Sandwich;Sandwiches & Wraps;19.00;9.00
+Caprese Sandwich;Sandwiches & Wraps;25.00;11.50
+Chicken Caesar Wrap;Sandwiches & Wraps;24.00;11.00
+Veggie Hummus Wrap;Sandwiches & Wraps;22.00;10.00
+Steak and Cheese Wrap;Sandwiches & Wraps;28.00;13.00
+Buffalo Chicken Wrap;Sandwiches & Wraps;25.00;11.50
+BBQ Chicken Sandwich;Sandwiches & Wraps;24.00;11.00
+Pulled Pork Sandwich;Sandwiches & Wraps;28.00;13.00
+Reuben Sandwich;Sandwiches & Wraps;30.00;14.00
+Pastrami Sandwich;Sandwiches & Wraps;32.00;15.00
+Misto Quente (Grilled Ham & Cheese);Sandwiches & Wraps;12.00;6.00
+Bauru (Roast beef & melted cheese);Sandwiches & Wraps;26.00;12.00
+X-Salada (Burger w/ salad);Sandwiches & Wraps;25.00;12.00
+X-Bacon (Burger w/ bacon);Sandwiches & Wraps;27.00;12.50
+X-Tudo (Burger w/ everything);Sandwiches & Wraps;30.00;14.00
+X-Frango (Chicken Burger);Sandwiches & Wraps;25.00;12.00
+X-Egg;Sandwiches & Wraps;24.00;11.00
+Pastel de Carne (Beef Pastel);Salgados & Appetizers;8.00;4.00
+Pastel de Queijo (Cheese Pastel);Salgados & Appetizers;7.50;3.50
+Pastel de Frango com Catupiry;Salgados & Appetizers;9.00;4.50
+Coxinha de Frango (Chicken Croquette);Salgados & Appetizers;7.00;3.50
+Coxinha de Jaca (Jackfruit Croquette);Salgados & Appetizers;8.00;4.00
+Risoles de Queijo e Presunto;Salgados & Appetizers;7.50;3.75
+Kibe;Salgados & Appetizers;8.50;4.25
+Esfiha de Carne (Beef Esfiha);Salgados & Appetizers;6.00;3.00
+Esfiha de Queijo (Cheese Esfiha);Salgados & Appetizers;5.50;2.75
+Pão de Queijo (Cheese Bread);Salgados & Appetizers;4.00;2.00
+Mini Pão de Queijo (6 pcs);Salgados & Appetizers;12.00;6.00
+Empada de Palmito (Palm heart tart);Salgados & Appetizers;8.50;4.25
+Empada de Frango (Chicken tart);Salgados & Appetizers;8.00;4.00
+Bolinho de Carne (Meatball);Salgados & Appetizers;7.00;3.50
+Bolinho de Queijo (Cheese ball);Salgados & Appetizers;7.50;3.75
+Onion Rings;Salgados & Appetizers;14.00;7.00
+Sweet Potato Fries;Salgados & Appetizers;16.00;8.00
+Mozzarella Sticks;Salgados & Appetizers;18.00;9.00
+Chicken Wings (6 pcs);Salgados & Appetizers;25.00;12.00
+Chicken Tenders;Salgados & Appetizers;22.00;10.00
+Cheese Breadsticks;Salgados & Appetizers;15.00;7.50
+Loaded Fries (cheese & bacon);Salgados & Appetizers;20.00;9.50
+French Fries (Small);Salgados & Appetizers;10.00;5.00
+French Fries (Large);Salgados & Appetizers;15.00;7.50
+Garlic Bread;Salgados & Appetizers;9.00;4.50
+Bruschetta (3 pcs);Salgados & Appetizers;15.00;7.50
+Mini Samosas (3 pcs);Salgados & Appetizers;12.00;6.00
+Jalapeno Poppers;Salgados & Appetizers;16.00;8.00
+Hummus with Pita Bread;Salgados & Appetizers;18.00;9.00
+Fried Cassava Sticks;Salgados & Appetizers;14.00;7.00
+Fried Polenta Sticks;Salgados & Appetizers;13.00;6.50
+Fried Cheese Cubes;Salgados & Appetizers;17.00;8.50
+Aipim Frito (Fried Cassava);Salgados & Appetizers;15.00;7.50
+Burger, Fries & Soda Combo;Main Dishes & Combos;35.00;15.00
+Hot Dog & Juice Combo;Main Dishes & Combos;25.00;11.00
+Sandwich & Fries Combo;Main Dishes & Combos;30.00;13.00
+Chicken Tenders & Iced Tea Combo;Main Dishes & Combos;32.00;14.00
+Veggie Burger & Sweet Potato Fries Combo;Main Dishes & Combos;34.00;14.50
+Prato Feito (Daily special);Main Dishes & Combos;30.00;15.00
+Chicken Fillet with Sides;Main Dishes & Combos;35.00;16.00
+Steak with Sides;Main Dishes & Combos;40.00;18.00
+Fish Fillet with Sides;Main Dishes & Combos;38.00;17.00
+Strogonoff de Carne;Main Dishes & Combos;42.00;19.00
+Strogonoff de Frango;Main Dishes & Combos;38.00;17.00
+Omelet with Side Salad;Main Dishes & Combos;25.00;12.00
+Individual Pizza - Margherita;Main Dishes & Combos;25.00;12.00
+Individual Pizza - Pepperoni;Main Dishes & Combos;28.00;13.50
+Individual Pizza - Four Cheese;Main Dishes & Combos;27.00;13.00
+Individual Pizza - Chicken & Catupiry;Main Dishes & Combos;29.00;14.00
+Spaghetti Bolognese;Main Dishes & Combos;28.00;13.00
+Chicken Alfredo;Main Dishes & Combos;30.00;14.00
+Side Salad;Main Dishes & Combos;12.00;6.00
+Large Salad;Main Dishes & Combos;25.00;12.00
+Brigadeiro (Brazilian fudge ball);Desserts & Açaí;5.00;2.50
+Pudim (Flan);Desserts & Açaí;10.00;5.00
+Slice of Cake;Desserts & Açaí;12.00;6.00
+Ice Cream Sundae;Desserts & Açaí;15.00;7.50
+Brownie with Ice Cream;Desserts & Açaí;18.00;9.00
+Paçoca;Desserts & Açaí;4.00;2.00
+Beijinho (Coconut fudge ball);Desserts & Açaí;5.00;2.50
+Churros (6 pcs);Desserts & Açaí;10.00;5.00
+Açaí with Condensed Milk;Desserts & Açaí;10.00;5.00
+Açaí Bowl (Small);Desserts & Açaí;20.00;10.00
+Açaí Bowl (Large);Desserts & Açaí;28.00;14.00
+Açaí Bowl with Granola & Banana;Desserts & Açaí;22.00;11.00
+Açaí Bowl with Various Fruits;Desserts & Açaí;26.00;13.00
+Açaí Bowl with Nutella & M&Ms;Desserts & Açaí;30.00;15.00
+Petit Gateau;Desserts & Açaí;20.00;10.00
+Cheesecake Slice;Desserts & Açaí;15.00;7.50
+Fruit Salad;Desserts & Açaí;12.00;6.00
+Pão de Mel (Honey cake);Desserts & Açaí;8.00;4.00
+Carrot Cake Slice;Desserts & Açaí;12.00;6.00
+Chocolate Mousse;Desserts & Açaí;10.00;5.00
+Passion Fruit Mousse;Desserts & Açaí;10.00;5.00
+Banana Split;Desserts & Açaí;25.00;12.50
+Waffle with Ice Cream;Desserts & Açaí;18.00;9.00
+Chocolate Chip Cookie;Desserts & Açaí;6.00;3.00
+Cupcake;Desserts & Açaí;8.00;4.00
+Torta Holandesa;Desserts & Açaí;15.00;7.50
+Torta de Limão (Lemon meringue pie);Desserts & Açaí;15.00;7.50
+Gelatina (Jello);Desserts & Açaí;5.00;2.50
+Romeu e Julieta (Guava paste with cheese);Desserts & Açaí;8.00;4.00
+Cocada (Coconut candy);Desserts & Açaí;6.00;3.00
+Sagu (Tapioca pudding);Desserts & Açaí;10.00;5.00
+Crème Brûlée;Desserts & Açaí;18.00;9.00
+Banana Frita com Canela (Fried banana with cinnamon);Desserts & Açaí;12.00;6.00
+Brigadeirão;Desserts & Açaí;15.00;7.50
+Bottled Water;Drinks;5.00;2.50
+Soda (Can);Drinks;6.00;3.00
+Iced Tea;Drinks;8.00;4.00
+Lemonade;Drinks;9.00;4.50
+Sparkling Water;Drinks;7.00;3.50
+Guarana (Can);Drinks;6.50;3.25
+Orange Juice;Drinks;10.00;6.00
+Strawberry Smoothie;Drinks;12.00;7.00
+Açaí Smoothie;Drinks;14.00;8.00
+Mango Juice;Drinks;11.00;6.50
+Pineapple Mint Juice;Drinks;10.50;6.25
+Watermelon Juice;Drinks;9.00;5.00
+Green Smoothie (spinach, apple, ginger);Drinks;15.00;8.00
+Passion Fruit Juice;Drinks;10.00;5.50
+Acerola Juice;Drinks;9.50;5.25
+Grape Juice;Drinks;11.00;6.00
+Vanilla Milkshake;Drinks;18.00;9.00
+Chocolate Milkshake;Drinks;18.00;9.00
+Strawberry Milkshake;Drinks;18.00;9.00
+Cookies and Cream Milkshake;Drinks;20.00;10.00
+Peanut Butter Milkshake;Drinks;21.00;10.50
+Coffee Shake;Drinks;19.00;9.50
+Oreo Shake;Drinks;20.00;10.00
+Espresso;Drinks;6.00;4.00
+Cappuccino;Drinks;9.00;5.00
+Latte;Drinks;10.00;5.50
+Hot Chocolate;Drinks;8.00;4.50
+Tea (various flavors);Drinks;7.00;4.00
+Iced Coffee;Drinks;12.00;6.00
+Frappuccino;Drinks;15.00;7.50
+Tonic Water;Drinks;8.00;4.00
+Coconut Water (canned);Drinks;9.00;4.50
+Suco de Laranja Natural (Fresh Orange Juice);Drinks;12.00;6.00
+Caldo de Cana (Sugarcane juice);Drinks;8.00;4.00
+Caldo de Cana with Lemon;Drinks;9.00;4.50
+Mate com Limão (Yerba mate with lemon);Drinks;10.00;5.00
+Smoothie de Frutas Vermelhas;Drinks;13.00;7.00
+Smoothie de Maracujá;Drinks;12.00;6.50
+Sucos de Polpa (Fruit pulp juices);Drinks;9.00;5.00
+Chocolate Quente Cremoso;Drinks;12.00;6.00
+Café com Leite (Coffee with milk);Drinks;8.00;4.00
+Chá Gelado com Pêssego;Drinks;9.00;4.50
+Suco Detox;Drinks;16.00;8.00
+Vitamina de Frutas (Fruit shake);Drinks;15.00;7.50
+Vitamina de Abacate (Avocado shake);Drinks;14.00;7.00
+Suco de Milho Verde (Green corn juice);Drinks;11.00;6.00

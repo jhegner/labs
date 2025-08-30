@@ -1,0 +1,101 @@
+Item;Category;Price (R$);Profit (R$)
+Classic Cheeseburger;Burger;25.00;12.50
+Double Cheeseburger;Burger;32.00;15.00
+Bacon Cheeseburger;Burger;28.00;13.00
+BBQ Burger;Burger;29.00;13.50
+Lanchonete Special Burger;Burger;35.00;16.00
+Veggie Burger;Burger;26.00;12.00
+Chicken Burger;Burger;27.00;12.50
+Crispy Chicken Burger;Burger;28.00;13.00
+Smash Burger;Burger;24.00;11.50
+Spicy Jalapeno Burger;Burger;30.00;14.00
+Classic Hot Dog;Hot Dog;15.00;7.50
+Chili Dog;Hot Dog;18.00;8.00
+Bacon Wrapped Hot Dog;Hot Dog;19.00;8.50
+Gourmet Hot Dog (with various toppings);Hot Dog;22.00;10.00
+Double Hot Dog;Hot Dog;20.00;9.00
+Grilled Cheese Sandwich;Sandwich;18.00;9.00
+Ham and Cheese Sandwich;Sandwich;20.00;9.50
+Turkey Club Sandwich;Sandwich;26.00;12.00
+Tuna Melt Sandwich;Sandwich;24.00;11.00
+BLT (Bacon, Lettuce, Tomato);Sandwich;22.00;10.00
+Philly Cheesesteak;Sandwich;30.00;14.00
+Roast Beef Sandwich;Sandwich;28.00;13.00
+Chicken Salad Sandwich;Sandwich;23.00;10.50
+Egg Salad Sandwich;Sandwich;19.00;9.00
+Caprese Sandwich;Sandwich;25.00;11.50
+Pastel de Carne (Beef Pastel);Salgados;8.00;4.00
+Pastel de Queijo (Cheese Pastel);Salgados;7.50;3.50
+Pastel de Frango com Catupiry (Chicken with Catupiry Cheese Pastel);Salgados;9.00;4.50
+Coxinha de Frango (Chicken Croquette);Salgados;7.00;3.50
+Coxinha de Jaca (Jackfruit Croquette, vegetarian);Salgados;8.00;4.00
+Risoles de Queijo e Presunto (Cheese & Ham Rissole);Salgados;7.50;3.75
+Kibe;Salgados;8.50;4.25
+Esfiha de Carne (Beef Esfiha);Salgados;6.00;3.00
+Esfiha de Queijo (Cheese Esfiha);Salgados;5.50;2.75
+Pão de Queijo (Cheese Bread);Salgados;4.00;2.00
+French Fries (Small);Sides;10.00;5.00
+French Fries (Large);Sides;15.00;7.50
+Onion Rings;Sides;14.00;7.00
+Sweet Potato Fries;Sides;16.00;8.00
+Mozzarella Sticks;Sides;18.00;9.00
+Chicken Wings (6 pcs);Sides;25.00;12.00
+Chicken Tenders;Sides;22.00;10.00
+Cheese Breadsticks;Sides;15.00;7.50
+Loaded Fries (with cheese and bacon);Sides;20.00;9.50
+Side Salad;Sides;12.00;6.00
+Orange Juice;Juices;10.00;6.00
+Strawberry Smoothie;Juices;12.00;7.00
+Açaí Smoothie;Juices;14.00;8.00
+Mango Juice;Juices;11.00;6.50
+Pineapple Mint Juice;Juices;10.50;6.25
+Watermelon Juice;Juices;9.00;5.00
+Green Smoothie (spinach, apple, ginger);Juices;15.00;8.00
+Passion Fruit Juice;Juices;10.00;5.50
+Acerola Juice;Juices;9.50;5.25
+Grape Juice;Juices;11.00;6.00
+Vanilla Milkshake;Milkshakes;18.00;9.00
+Chocolate Milkshake;Milkshakes;18.00;9.00
+Strawberry Milkshake;Milkshakes;18.00;9.00
+Cookies and Cream Milkshake;Milkshakes;20.00;10.00
+Peanut Butter Milkshake;Milkshakes;21.00;10.50
+Coffee Shake;Milkshakes;19.00;9.50
+Oreo Shake;Milkshakes;20.00;10.00
+Açaí Bowl (Small);Açaí;20.00;10.00
+Açaí Bowl (Large);Açaí;28.00;14.00
+Açaí Bowl with Granola & Banana;Açaí;22.00;11.00
+Açaí Bowl with Various Fruits;Açaí;26.00;13.00
+Açaí Bowl with Nutella & M&Ms;Açaí;30.00;15.00
+Individual Pizza - Margherita;Pizza;25.00;12.00
+Individual Pizza - Pepperoni;Pizza;28.00;13.50
+Individual Pizza - Four Cheese;Pizza;27.00;13.00
+Individual Pizza - Chicken & Catupiry;Pizza;29.00;14.00
+Brigadeiro (Brazilian chocolate fudge ball);Dessert;5.00;2.50
+Pudim (Flan);Dessert;10.00;5.00
+Slice of Cake;Dessert;12.00;6.00
+Ice Cream Sundae;Dessert;15.00;7.50
+Brownie with Ice Cream;Dessert;18.00;9.00
+Paçoca;Dessert;4.00;2.00
+Beijinho (Coconut fudge ball);Dessert;5.00;2.50
+Churros;Dessert;8.00;4.00
+Açaí with Condensed Milk;Dessert;10.00;5.00
+Espresso;Hot Beverages;6.00;4.00
+Cappuccino;Hot Beverages;9.00;5.00
+Latte;Hot Beverages;10.00;5.50
+Hot Chocolate;Hot Beverages;8.00;4.50
+Tea (various flavors);Hot Beverages;7.00;4.00
+Bottled Water;Cold Drinks;5.00;2.50
+Soda (Can);Cold Drinks;6.00;3.00
+Iced Tea;Cold Drinks;8.00;4.00
+Lemonade;Cold Drinks;9.00;4.50
+Sparkling Water;Cold Drinks;7.00;3.50
+Guarana (Can);Cold Drinks;6.50;3.25
+Burger, Fries & Soda Combo;Combo;35.00;15.00
+Hot Dog & Juice Combo;Combo;25.00;11.00
+Sandwich & Fries Combo;Combo;30.00;13.00
+Chicken Tenders & Iced Tea Combo;Combo;32.00;14.00
+Veggie Burger & Sweet Potato Fries Combo;Combo;34.00;14.50
+Extra Cheese;Extras;3.00;2.00
+Extra Bacon;Extras;4.00;2.50
+Guacamole;Extras;5.00;3.00
+Special House Sauce;Extras;2.00;1.50
